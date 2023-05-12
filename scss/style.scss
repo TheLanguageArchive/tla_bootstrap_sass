@@ -1,0 +1,387 @@
+/* 
+Theme Name: Bootstrap 4 Sass
+Description: Bootstrap 4 with Sass
+*/
+
+// import files
+@import "import";
+
+/* GENERAL STYLES
+-------------------------------------------------*/
+
+body {
+    background: $white;
+}
+
+
+/* COLORS 
+--------------------------------------------------*/
+
+a {
+    color: $accent-shade;
+}
+
+.bg-inverse {
+    background: $primary-shade !important;
+}
+
+.site-footer {
+    background: $accent-shade !important;
+}
+
+.menu--main li a {
+    color: $primary-shade;
+}
+
+.menu--account li a {
+    color: $primary-shade;
+}
+
+.site-name-slogan a {
+    text-decoration: none;
+}
+
+.card-group img {
+    margin: 0;
+    width: 100%;
+    height: auto;
+}
+
+.card-group .field--type-image {
+    margin: 0
+}
+
+.slick {
+    width: 100%;
+}
+
+.slick>div {
+    margin: 0 15px;
+}
+
+// customisations
+
+// general
+
+body {
+    font-weight: normal;
+    color: rgb(102, 102, 102);
+}
+
+// main wrapper
+
+.layout-main-wrapper {
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+}
+
+div#main {
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+// top header and navbar region, menus
+
+.header {
+    margin-bottom: 1.5rem;
+}
+
+.navbar {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.navbar-brand {
+    margin-left: 1rem;
+}
+
+.navbar-brand img.img-fluid {
+    height: 55px !important;
+}
+
+.menu--main {
+    margin-right: auto;
+}
+
+.menu--account {
+    margin-left: auto;
+    width: auto;
+}
+
+#block-tla-bootstrap-sass-account-menu ul {
+    padding-left: 0;
+}
+
+#block-tla-bootstrap-sass-account-menu .button img {
+    max-width: 40px;
+    max-height: 40px;
+}
+
+#block-tla-bootstrap-sass-account-menu {
+    position: relative;
+    width: 60px;
+}
+
+#block-tla-bootstrap-sass-account-menu .button>a {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    width: 100%;
+}
+
+#block-tla-bootstrap-sass-account-menu .button img {
+    max-width: 40px;
+    max-height: 40px;
+}
+
+#block-tla-bootstrap-sass-account-menu .button ul {
+    background-color: white;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    z-index: 6;
+    display: none;
+}
+
+#block-tla-bootstrap-sass-account-menu .button ul a {
+    margin: 0;
+    width: 11em;
+}
+
+#block-tla-bootstrap-sass-account-menu .button:hover ul,
+#block-tla-bootstrap-sass-account-menu .button:focus ul,
+#block-tla-bootstrap-sass-account-menu .button.menu-expanded ul {
+    display: block;
+}
+
+#block-tla-bootstrap-sass-account-menu .person img {
+    border-radius: 20px;
+    border: 2px solid white;
+    background: white;
+}
+
+.dropdown:hover>.dropdown-menu {
+    display: block;
+}
+
+.dropdown>.dropdown-toggle:active {
+    pointer-events: none;
+}
+
+// content
+.view-content .views-row {
+    margin-bottom: 1rem;
+}
+
+// sidebar
+aside {
+    background-color: #fafafa;
+}
+
+.sidebar .block {
+    border-color: #e8e8e8;
+}
+
+// pager
+.pagination {
+    justify-content: center;
+}
+
+// tabs
+.nav-tabs .nav-link.active {
+    color: white;
+}
+
+// site footer
+
+.site-footer {
+    height: 500px;
+    background: #333333 !important;
+}
+
+/* front page styling */
+
+.front-container {
+    padding: 20px;
+    max-width: 1084px;
+    margin: 0 auto !important;
+}
+
+.front-container section.category {
+    height: auto;
+}
+
+.front-container section.category .category__item {
+    margin-bottom: 1em;
+}
+
+.repository__item {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2em;
+}
+
+.repository__preview {
+    width: 100%;
+}
+
+.repository__label {
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+}
+
+.theme-mpi .repository__label {
+    color: #ffffff;
+    background: #007562;
+}
+
+.theme-tla .repository__label {
+    color: #ffffff;
+    background: #234c7d;
+}
+
+.repository__label img {
+    width: 50px;
+    height: 50px;
+    margin: 5px 10px;
+}
+
+.repository__name {
+    font-size: 2.4em;
+    align-self: center;
+}
+
+.theme-mpi .repository__name {
+    font-size: 1.7em;
+}
+
+.repository__description {
+    margin: 0;
+    padding: 10px;
+    text-align: justify;
+    font-weight: 300;
+    font-size: 1em;
+    color: #777777;
+}
+
+/* 67.5em = 1080px */
+@media only screen and (min-width: 67.5em) {
+    .repository {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .repository__item {
+        width: 500px;
+    }
+}
+
+.category {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: stretch;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.category__item {
+    width: 320px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: flex-start;
+    margin-bottom: 3em;
+}
+
+.category__item img {
+    width: 100%;
+}
+
+.theme-tla .category__item p {
+    color: #666666;
+}
+
+.theme-mpi .category__item p {
+    color: #666666;
+}
+
+.category__item-title {
+    font-size: 18px;
+    margin-top: 0.5em;
+    display: inline-block;
+}
+
+.theme-mpi .category__item-title {
+    color: #017562;
+}
+
+.theme-tla .category__item-title {
+    color: #234c7d;
+}
+
+.category__item-title:hover {
+    text-decoration: none;
+}
+
+.category__item a.category__item-button {
+    padding: 0.2em 1.5em;
+    align-self: flex-start;
+}
+
+.theme-mpi .category__item a.category__item-button {
+    background: #017562;
+    border: 1px solid #017562;
+    color: #ffffff;
+}
+
+.theme-tla .category__item a.category__item-button {
+    background: #234c7d;
+    border: 1px solid #234c7d;
+    color: #ffffff;
+}
+
+.theme-mpi .category__item a.category__item-button:hover {
+    background: #ffffff;
+    color: #017562;
+    border: 1px solid #017562;
+    text-decoration: none;
+}
+
+.theme-tla .category__item a.category__item-button:hover {
+    background: #ffffff;
+    color: #234c7d;
+    border: 1px solid #234c7d;
+    text-decoration: none;
+}
+
+/* 64em = 1024px */
+@media only screen and (max-width: 64em) {
+    .category__item {
+        width: 48%;
+    }
+
+    .category__item-button {
+        align-self: stretch;
+    }
+}
+
+/* 48em = 768px */
+@media only screen and (max-width: 48em) {
+    .category__item {
+        width: 98%;
+    }
+}
+
+div.region-pre-content {
+    margin-bottom: 20px;
+}
+
+section.theme-tla {
+    margin-top: 30px;
+}
