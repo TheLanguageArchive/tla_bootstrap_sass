@@ -56,8 +56,15 @@ $enable-gradients: false;
 // Breadcrumbs (Works only on Bootstrap 5+)
 // $breadcrumb-divider: quote(">");
 
-// New image variable introduced on 5.5.1
+// New image variable introduced in 5.5.1
 $barrio_path_images: "../images/";
 
-// no navbar transition
-$navbar-toggler-transition: box-shadow 0s ease-in-out;
+// customise breakpoints
+$grid-breakpoints: (
+    xs: 0,
+    sm: 576px,
+    md: 768px,
+    lg: 1024px,
+    xl: 1200px,
+    xxl: 1400px
+);

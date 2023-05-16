@@ -108,6 +108,14 @@ div#main {
     width: auto;
 }
 
+.menu-block ul {
+    margin-bottom: 0;
+}
+
+.menu-block li.button {
+    list-style: none;
+}
+
 #block-tla-bootstrap-sass-account-menu ul {
     padding-left: 0;
 }
@@ -129,7 +137,7 @@ div#main {
     height: 100%;
     margin: 0;
     padding: 0;
-    position: absolute;
+    //position: absolute;
     width: 100%;
 }
 
@@ -145,6 +153,16 @@ div#main {
     top: 100%;
     z-index: 6;
     display: none;
+}
+
+/* 48em = 768px */
+@media only screen and (max-width: 48em) {
+
+    #block-tla-bootstrap-sass-account-menu .button ul.dropdown-menu {
+        right: auto;
+        left: 0px !important;
+    }
+
 }
 
 #block-tla-bootstrap-sass-account-menu .button ul a {
@@ -360,8 +378,7 @@ aside {
     text-decoration: none;
 }
 
-/* 64em = 1024px */
-@media only screen and (max-width: 64em) {
+@media only screen and (max-width: 1023px) {
     .category__item {
         width: 48%;
     }
@@ -376,6 +393,7 @@ aside {
     .category__item {
         width: 98%;
     }
+
 }
 
 div.region-pre-content {
