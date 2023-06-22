@@ -164,8 +164,14 @@ ol.breadcrumb li:first-child a::before {
 }
 
 #block-tla-bootstrap-sass-account-menu .dropdown-menu a {
-    padding: 0;
+    padding: 5px;
+    padding-left: 20px;
 }
+
+#block-tla-bootstrap-sass-account-menu .dropdown-menu a:hover {
+    background-color: var(--bs-dropdown-link-hover-bg);
+}
+
 
 /* 48em = 768px */
 @media only screen and (max-width: 48em) {

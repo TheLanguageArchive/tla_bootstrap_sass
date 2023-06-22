@@ -1,0 +1,14 @@
+langcode: en
+status: true
+dependencies: {  }
+name: account_menu
+label: 'Account menu'
+effects:
+  fabef56c-1aff-4cf7-8b41-836e40717f87:
+    uuid: fabef56c-1aff-4cf7-8b41-836e40717f87
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 100
+      height: 100
+      anchor: center-center

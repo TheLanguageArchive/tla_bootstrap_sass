@@ -8,6 +8,7 @@
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\image\Entity\ImageStyle;
 use Drupal\user\Entity\User;
+use Drupal\Core\Cache\CacheableMetadata;
 
 /**
  * Implements hook_form_system_theme_settings_alter() for settings form.
@@ -39,10 +40,10 @@ function tla_bootstrap_sass_form_system_theme_settings_alter(&$form, FormStateIn
 function tla_bootstrap_sass_preprocess_block(&$variables) {
   if ($variables['plugin_id'] === 'system_menu_block:account') {
     $user = User::load(\Drupal::currentUser()->id());
-    if (user_picture_enabled() && !$user->user_picture->isEmpty() && $user->user_picture->first()->entity instanceof FileInterface) {
-      $file = $user->user_picture->first()->entity;
-      $uri = $file->getFileUri();
-      $variables['picture'] = ImageStyle::load(theme_get_setting('account_menu_image_style'))->buildUrl($uri);
+    if (user_picture_enabled() && !$user->user_picture->isEmpty()) {
+      $uri = $user->user_picture->entity->getFileUri();
+      $style = \Drupal::entityTypeManager()->getStorage('image_style')->load('account_menu');
+      $variables['picture'] = $style->buildUrl($uri);
       $variables['class'] = 'person';
       $cache_metadata = CacheableMetadata::createFromObject($file);
       $cache_metadata->applyTo($variables);
