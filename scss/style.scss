@@ -478,3 +478,82 @@ form#search-block-form input.form-search {
 iframe.pdf {
     height: 1300px;
 }
+
+// bundle view
+form#bundle-actions-block-form input.image-button {
+    width: 150px;
+    opacity: 1.0;
+    border: 0;
+}
+
+form#bundle-actions-block-form button {
+    background-color: #808080!important;
+    padding: 1rem;
+    margin: 0.5rem;
+}
+
+form#bundle-actions-block-form button.is-disabled {
+    background-color: #b4b4b4!important;
+}
+
+form#bundle-actions-block-form button#edit-validate-bundle {
+    background-color: #43ac6a!important;
+}
+
+form#bundle-actions-block-form button#edit-validate-bundle.is-disabled {
+    background-color: #b4b4b4!important;
+}
+
+form#bundle-actions-block-form button#edit-archive-bundle {
+    background-color: #43ac6a!important;
+}
+
+form#bundle-actions-block-form button#edit-archive-bundle.is-disabled {
+    background-color: #b4b4b4!important;
+}
+
+form#bundle-actions-block-form button#edit-delete-bundle {
+    background-color: #f04124!important;
+}
+
+form#bundle-actions-block-form button#edit-delete-bundle.is-disabled {
+    background-color: #b4b4b4!important;
+}
+
+form#bundle-actions-block-form button:before {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 600;
+    font-size: 15px;
+    vertical-align: top;
+    margin-right: 7px;
+    margin-top: -2px;
+}
+
+form#bundle-actions-block-form button#edit-enter-metadata:before,
+form#bundle-actions-block-form button#edit-edit-metadata:before,
+form#bundle-actions-block-form button#edit-edit-bundle:before {
+    background-image: none;
+    content: "\f303";
+}
+
+form#bundle-actions-block-form button#edit-validate-bundle:before {
+    background-image: none;
+    content: "\f560";
+}
+
+form#bundle-actions-block-form button#edit-reopen-bundle:before {
+    background-image: none;
+    content: "\f2ea";
+}
+
+form#bundle-actions-block-form button#edit-archive-bundle:before {
+    background-image: none;
+    content: "\f187";
+}
+
+form#bundle-actions-block-form button#edit-delete-bundle:before {
+    background-image: none;
+    content: "\f2ed";
+}
+
+
