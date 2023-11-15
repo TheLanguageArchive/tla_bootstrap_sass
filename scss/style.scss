@@ -480,19 +480,23 @@ iframe.pdf {
 }
 
 // bundle view
-form#bundle-actions-block-form input.image-button {
-    width: 150px;
-    opacity: 1.0;
-    border: 0;
+
+form#bundle-actions-block-form input.form-control,
+form#bundle-actions-block-form select.form-select {
+    border-radius: 0;
+    width: auto !important;
 }
 
 form#bundle-actions-block-form button {
     background-color: #808080 !important;
     padding: 1rem;
     margin: 0.5rem;
+    margin-left: 0;
 }
 
 form#bundle-actions-block-form button.is-disabled {
+    cursor: not-allowed;
+    pointer-events: all !important;
     background-color: #b4b4b4 !important;
 }
 
@@ -532,6 +536,12 @@ form#bundle-actions-block-form button:before {
 form#bundle-actions-block-form button#edit-enter-metadata:before,
 form#bundle-actions-block-form button#edit-edit-metadata:before,
 form#bundle-actions-block-form button#edit-edit-bundle:before {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 600;
+    font-size: 15px;
+    vertical-align: top;
+    margin-right: 7px;
+    margin-top: -2px;
     background-image: none;
     content: "\f303";
 }
@@ -556,72 +566,82 @@ form#bundle-actions-block-form button#edit-delete-bundle:before {
     content: "\f2ed";
 }
 
-#flat_collection_add_form_wrapper .btn {
-    margin-left: 0;
-    box-shadow: none;
+form#bundle-actions-block-form input.image-button {
+    width: 150px !important;
+    background-color: transparent !important;
+    opacity: 1.0;
+    border: 0;
 }
 
-#flat_collection_add_form_wrapper input.btn:before {
+// metadata forms
+#flat_collection_add_form_wrapper .btn,
+#flat_bundle_edit_cmdi_form_wrapper .btn {
+    color: white;
+    padding: 1rem;
+    margin: 0.5rem;
+    margin-left: 0;
+}
+
+#flat_collection_add_form_wrapper button.btn:before,
+#flat_bundle_edit_cmdi_form_wrapper button.btn:before {
     font-family: "Font Awesome 5 Free";
     font-weight: 600;
     font-size: 15px;
     vertical-align: top;
-    margin-right: 7px;
-    margin-top: -2px;
+    margin-top: -3px;
 }
 
-#flat_collection_add_form_wrapper input.btn-success {
+#flat_collection_add_form_wrapper button.btn-success,
+#flat_bundle_edit_cmdi_form_wrapper button.btn-success {
     background-color: #43ac6a !important;
 }
 
-#flat_collection_add_form_wrapper input.btn-success:before {
+#flat_collection_add_form_wrapper button.btn-success:before,
+#flat_bundle_edit_cmdi_form_wrapper button.btn-success:before {
     background-image: none;
-    font-family: "Font Awesome 5 Free";
-    font-weight: 600;
-    font-size: 15px;
-    vertical-align: top;
-    margin-right: 7px;
-    margin-top: -2px;
     content: "\2b" !important;
 }
 
-#flat_collection_add_form_wrapper input.btn-danger {
+#flat_collection_add_form_wrapper button.btn-danger,
+#flat_bundle_edit_cmdi_form_wrapper button.btn-danger {
     background-color: #f04124 !important;
 }
 
-#flat_collection_add_form_wrapper input.btn-danger:before {
+#flat_collection_add_form_wrapper button.btn-danger:before,
+#flat_bundle_edit_cmdi_form_wrapper button.btn-danger:before {
     background-image: none;
-    font-family: "Font Awesome 5 Free";
-    font-weight: 600;
-    font-size: 15px;
-    vertical-align: top;
-    margin-right: 7px;
-    margin-top: -2px;
     content: "\f2ed" !important;
+    margin-top: -2px;
 }
 
 #flat_collection_add_form_wrapper input.form-control,
-#flat_collection_add_form_wrapper select.form-select {
+#flat_collection_add_form_wrapper select.form-select,
+#flat_bundle_edit_cmdi_form_wrapper input.form-control,
+#flat_bundle_edit_cmdi_form_wrapper select.form-select {
     border-radius: 0;
     width: auto !important;
 }
 
-#flat_collection_add_form_wrapper label {
+#flat_collection_add_form_wrapper label,
+#flat_bundle_edit_cmdi_form_wrapper label {
     font-size: 0.8rem !important;
 }
 
-#flat_collection_add_form_wrapper legend {
+#flat_collection_add_form_wrapper legend,
+#flat_bundle_edit_cmdi_form_wrapper legend {
     font-size: 1em !important;
     background-color: #f5f5f5;
     padding: 0.4em !important;
 }
 
-#flat_collection_add_form_wrapper fieldset {
+#flat_collection_add_form_wrapper fieldset,
+#flat_bundle_edit_cmdi_form_wrapper fieldset {
     margin-top: 2rem;
     border: 1px solid #dddddd;
 }
 
-#flat_collection_add_form_wrapper .fieldset-wrapper {
+#flat_collection_add_form_wrapper .fieldset-wrapper,
+#flat_bundle_edit_cmdi_form_wrapper .fieldset-wrapper {
     padding: 1em;
 }
 
