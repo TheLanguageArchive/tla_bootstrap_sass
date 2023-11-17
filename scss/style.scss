@@ -75,11 +75,6 @@ body {
     margin-bottom: 1.5em;
 }
 
-div#main {
-    margin-left: 1rem;
-    margin-right: 1rem;
-}
-
 // top header and navbar region, menus
 
 .header {
@@ -577,9 +572,14 @@ form#bundle-actions-block-form input.image-button {
 #flat_collection_add_form_wrapper .btn,
 #flat_bundle_edit_cmdi_form_wrapper .btn {
     color: white;
-    padding: 1rem;
-    margin: 0.5rem;
+    padding: 0.5rem 1rem;
     margin-left: 0;
+}
+
+#flat_collection_add_form_wrapper .flat-dropdown-save button.btn,
+#flat_bundle_edit_cmdi_form_wrapper .flat-dropdown-save button.btn {
+    padding: 0.3rem 1rem;
+    vertical-align: center;
 }
 
 #flat_collection_add_form_wrapper button.btn:before,
@@ -600,6 +600,11 @@ form#bundle-actions-block-form input.image-button {
 #flat_bundle_edit_cmdi_form_wrapper button.btn-success:before {
     background-image: none;
     content: "\2b" !important;
+}
+
+#flat_collection_add_form_wrapper .flat-dropdown-save button.btn-success:before,
+#flat_bundle_edit_cmdi_form_wrapper .flat-dropdown-save button.btn-success:before {
+    display: none;
 }
 
 #flat_collection_add_form_wrapper button.btn-danger,
@@ -629,9 +634,9 @@ form#bundle-actions-block-form input.image-button {
 
 #flat_collection_add_form_wrapper legend,
 #flat_bundle_edit_cmdi_form_wrapper legend {
-    font-size: 1em !important;
+    font-size: 1rem !important;
     background-color: #f5f5f5;
-    padding: 0.4em !important;
+    padding: 0.4rem !important;
 }
 
 #flat_collection_add_form_wrapper fieldset,
@@ -642,7 +647,13 @@ form#bundle-actions-block-form input.image-button {
 
 #flat_collection_add_form_wrapper .fieldset-wrapper,
 #flat_bundle_edit_cmdi_form_wrapper .fieldset-wrapper {
-    padding: 1em;
+    padding: 1rem;
+}
+
+#flat_collection_add_form_wrapper .fieldset-wrapper,
+#flat_bundle_edit_cmdi_form_wrapper .fieldset-wrapper {
+    padding: 1rem;
+    padding-bottom: 0.5rem;
 }
 
 // tabs (local tasks)
