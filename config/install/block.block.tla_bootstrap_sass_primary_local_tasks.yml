@@ -4,11 +4,11 @@ dependencies:
   theme:
     - tla_bootstrap_sass
 _core:
-  default_config_hash: nGE3EoPQQaQCuqTUtZgw0-KIzmrqdKDzdNQf2JyPUt4
+  default_config_hash: oN5L5-uNld10SvJy1hfGS8LQgSEw7n6BGKC8SI1s5Lc
 id: tla_bootstrap_sass_primary_local_tasks
 theme: tla_bootstrap_sass
-region: highlighted
-weight: -4
+region: content
+weight: -5
 provider: null
 plugin: local_tasks_block
 settings:

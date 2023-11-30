@@ -1,0 +1,30 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - advanced_search
+    - islandora
+  theme:
+    - tla_bootstrap_sass
+id: tla_bootstrap_sass_search
+theme: tla_bootstrap_sass
+region: sidebar_first
+weight: 0
+provider: null
+plugin: search_block
+settings:
+  id: search_block
+  label: Search
+  label_display: '0'
+  provider: advanced_search
+  block_id: tla_bootstrap_sass_search
+  search_view_machine_name: view.archive.page_1
+  search_textfield_label: ''
+  search_placeholder: ''
+  search_submit_label: ''
+visibility:
+  media_source_mimetype:
+    id: media_source_mimetype
+    negate: false
+    context_mapping: {  }
+    mimetype: ''

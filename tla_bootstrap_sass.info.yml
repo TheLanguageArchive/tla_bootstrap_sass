@@ -1,10 +1,12 @@
 name: TLA Bootstrap SASS
 type: theme
-description: 'SASS starter kit for a Bootstrap Barrio SubTheme.'
+description: 'Bootstrap Barrio SASS SubTheme for TLA.'
 # version: VERSION
 core: 8.x
 core_version_requirement: ^8 || ^9 || ^10
 base theme: bootstrap_barrio
+dependencies:
+  - flat_deposit:flat_deposit
 
 libraries:
   - tla_bootstrap_sass/global-styling

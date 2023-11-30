@@ -1,0 +1,30 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - flat_deposit
+    - islandora
+    - system
+  theme:
+    - tla_bootstrap_sass
+id: tla_bootstrap_sass_bundleactionsblock
+theme: tla_bootstrap_sass
+region: content
+weight: 2
+provider: null
+plugin: bundle_actions_block
+settings:
+  id: bundle_actions_block
+  label: 'Bundle Actions block'
+  label_display: '0'
+  provider: flat_deposit
+visibility:
+  media_source_mimetype:
+    id: media_source_mimetype
+    negate: false
+    context_mapping: {  }
+    mimetype: ''
+  request_path:
+    id: request_path
+    negate: true
+    pages: "/*/enter-metadata\r\n/*/edit-metadata\r\n/*/update-metadata"

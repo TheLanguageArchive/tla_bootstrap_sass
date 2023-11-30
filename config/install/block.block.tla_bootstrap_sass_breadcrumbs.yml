@@ -9,8 +9,8 @@ _core:
   default_config_hash: VhBzWb7lMRtIOg9G7VSw_0uopi-7zXeHq4vXqqV1HFE
 id: tla_bootstrap_sass_breadcrumbs
 theme: tla_bootstrap_sass
-region: breadcrumb
-weight: 0
+region: content
+weight: -7
 provider: null
 plugin: system_breadcrumb_block
 settings:
