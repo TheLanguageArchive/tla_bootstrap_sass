@@ -7,6 +7,7 @@ core_version_requirement: ^8 || ^9 || ^10
 base theme: bootstrap_barrio
 dependencies:
   - flat_deposit:flat_deposit
+logo: 'images/tla_logo_inverted.png'
 
 libraries:
   - tla_bootstrap_sass/global-styling
