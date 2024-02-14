@@ -16,17 +16,15 @@ $cyan: #17a2b8;
 $white: #fff;
 $gray-100: #f8f9fa;
 $gray-800: #343a40;
-$theme-colors: (
-    primary: $accent-shade,
-    secondary: $primary-shade,
-    success: $green,
-    info: $cyan,
-    warning: $yellow,
-    danger: $red,
-    light: $gray-100,
-    dark: $gray-800
-);
+$primary: $accent-shade;
+$secondary: $primary-shade;
+$success: $green;
+$info: $cyan;
+$warning: $yellow;
+$danger: $red;
 $brand-primary: $accent-shade;
+$light: $gray-100;
+$dark: $gray-800;
 //$brand-success: $green;
 //$brand-info: $teal;
 //$brand-warning: $orange;
@@ -53,11 +51,18 @@ $comment-spacer-y: 1.25em;
 $enable-responsive-font-sizes: true;
 $enable-shadows: false;
 $enable-gradients: false;
+// Button border radius
+$btn-border-radius: 0;
 // Breadcrumbs (Works only on Bootstrap 5+)
 // $breadcrumb-divider: quote(">");
 
 // New image variable introduced in 5.5.1
 $barrio_path_images: "../images/";
+
+// Alert close svg
+$btn-close-width: 1em;
+$btn-close-bg: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#ffffff'><path d='M.293.293a1 1 0 0 1 1.414 0L8 6.586 14.293.293a1 1 0 1 1 1.414 1.414L9.414 8l6.293 6.293a1 1 0 0 1-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 0 1-1.414-1.414L6.586 8 .293 1.707a1 1 0 0 1 0-1.414z'/></svg>") !default;
+$btn-close-bg-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#3c3c3c'><path d='M.293.293a1 1 0 0 1 1.414 0L8 6.586 14.293.293a1 1 0 1 1 1.414 1.414L9.414 8l6.293 6.293a1 1 0 0 1-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 0 1-1.414-1.414L6.586 8 .293 1.707a1 1 0 0 1 0-1.414z'/></svg>") !default;
 
 // customise breakpoints
 $grid-breakpoints: (

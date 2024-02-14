@@ -79,6 +79,7 @@ body {
 
 .header {
     margin-bottom: 1.5rem;
+    background-color: $primary-color;
 }
 
 .navbar {
@@ -195,14 +196,6 @@ ol.breadcrumb li:first-child a::before {
     background: white;
 }
 
-//.dropdown:hover>.dropdown-menu {
-//    display: block;
-//}
-
-.dropdown>.dropdown-toggle:active {
-    pointer-events: none;
-}
-
 // content
 .view-content .views-row {
     margin-bottom: 1rem;
@@ -213,9 +206,9 @@ ol.breadcrumb li:first-child a::before {
 }
 
 // sidebar
-aside div {
-    background-color: #fafafa;
-}
+//aside div {
+//    background-color: #fafafa;
+//}
 
 .sidebar .block {
     border-color: #e8e8e8;
@@ -460,13 +453,23 @@ section.theme-tla {
 
 
 // search form
-form#search-block-form .input-group-btn .btn {
-    margin: 0;
-    padding: 0.7rem 1rem;
+form[id^='search-form'] {
+    display: flex;
 }
 
-form#search-block-form input.form-search {
-    border-radius: 0.125rem;
+form[id^='search-form'] input {
+    flex-grow: 1;
+    border-radius: 0;
+}
+
+form[id^='search-form'] button {
+    font-size: 0;
+    height: 2.5rem;
+}
+
+form[id^='search-form'] button::before {
+    font-size: 1rem;
+    margin-left: 0.5rem;
 }
 
 // pdf.js viewer
@@ -686,4 +689,47 @@ nav.tabs ul .nav-item a:hover {
 
 nav.tabs ul .nav-item.active a:hover {
     background-color: #0080AA;
+}
+
+// alerts
+div.alert {
+    display: flex;
+}
+
+div.alert svg {
+    height: 2.5rem;
+    margin-right: 1rem;
+}
+
+div.alert .item-list ul {
+    list-style-type: inherit;
+    list-style-position: inside;
+}
+
+div.alert button.btn-close {
+    background: transparent escape-svg($btn-close-bg) center / $btn-close-width auto no-repeat;
+    opacity: 1;
+}
+
+div.alert-warning button.btn-close {
+    background: transparent escape-svg($btn-close-bg-dark) center / $btn-close-width auto no-repeat;
+    opacity: 1;
+}
+
+div.alert-danger {
+    background-color: #D91717;
+}
+
+div.alert-success {
+    background-color: #008535;
+}
+
+div.alert-warning {
+    background-color: #ffae00;
+    color: #3c3c3c;
+}
+
+div.alert-info {
+    background-color: #066bc6;
+    color: white;
 }
