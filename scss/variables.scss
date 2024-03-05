@@ -1,17 +1,17 @@
 /* VARIABLES */
 
 // colors
-$primary-color: #07426E;
-$primary-shade: #FFFFFF;
+$primary-color: #07426e;
+$primary-shade: #ffffff;
 $primary-light: lighten($primary-shade, 37%);
 $primary-dark: darken($primary-shade, 12%);
-$accent-shade: #07426E;
-$accent-light: #0080AA;
+$accent-shade: #07426e;
+$accent-light: #0080aa;
 $accent-dark: darken($accent-shade, 12%);
 // Reassign color vars to semantic color scheme
-$red: #dc3545;
+$red: #d91717;
 $yellow: #ffc107;
-$green: #28a745;
+$green: #007e33;
 $cyan: #17a2b8;
 $white: #fff;
 $gray-100: #f8f9fa;

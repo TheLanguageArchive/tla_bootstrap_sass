@@ -1,4 +1,4 @@
-/* 
+/*
 Theme Name: Bootstrap 4 Sass
 Description: Bootstrap 4 with Sass
 */
@@ -14,7 +14,7 @@ body {
 }
 
 
-/* COLORS 
+/* COLORS
 --------------------------------------------------*/
 
 a {
@@ -222,6 +222,15 @@ ol.breadcrumb li:first-child a::before {
 // tabs
 .nav-tabs .nav-link.active {
     color: white;
+}
+
+// buttons
+.btn-success {
+    border-color: #006b36 !important;
+}
+
+.btn-danger {
+    border-color: #b81414 !important;
 }
 
 // site footer
@@ -445,12 +454,10 @@ section.theme-tla {
     width: 35px;
 }
 
-// compound object members view
 .view-compound-object-members .views-field-field-media-image img {
     width: 30px;
     height: auto;
 }
-
 
 // search form
 form[id^='search-form'] {
@@ -522,21 +529,21 @@ form#bundle-actions-block-form button#edit-validate-bundle,
 form#bundle-actions-block-form button#edit-archive-bundle {
     color: white;
     background-color: #007e33 !important;
-    border-color: #006717 !important;
+    border-color: #006b36 !important;
 }
 
 form#bundle-actions-block-form button#edit-validate-bundle:hover,
 form#bundle-actions-block-form button#edit-archive-bundle:hover {
-    background-color: #006717 !important;
+    background-color: #006b36 !important;
 }
 
 form#bundle-actions-block-form button#edit-delete-bundle {
-    background-color: #D91717 !important;
-    border-color: #b50011 !important;
+    background-color: #d91717 !important;
+    border-color: #b81414 !important;
 }
 
 form#bundle-actions-block-form button#edit-delete-bundle:hover {
-    background-color: #b50011 !important;
+    background-color: #b81414 !important;
 }
 
 form#bundle-actions-block-form button:before {
@@ -611,12 +618,12 @@ form#bundle-actions-block-form input.image-button {
 
 #flat_cmdi_form_wrapper button.btn-success {
     background-color: #007e33 !important;
-    border-color: #006717 !important;
+    border-color: #006b36 !important;
 
 }
 
 #flat_cmdi_form_wrapper button.btn-success:hover {
-    background-color: #006717 !important;
+    background-color: #006b36 !important;
 }
 
 #flat_cmdi_form_wrapper button.btn-success:before {
@@ -630,12 +637,12 @@ form#bundle-actions-block-form input.image-button {
 }
 
 #flat_cmdi_form_wrapper button.btn-danger {
-    background-color: #D91717 !important;
-    border-color: #b50011 !important;
+    background-color: #d91717 !important;
+    border-color: #b81414 !important;
 }
 
 #flat_cmdi_form_wrapper button.btn-danger:hover {
-    background-color: #b50011 !important;
+    background-color: #b81414 !important;
 }
 
 #flat_cmdi_form_wrapper button.btn-danger:before {
@@ -695,7 +702,7 @@ nav.tabs ul .nav-item a {
 }
 
 nav.tabs ul .nav-item.active a {
-    border-bottom: var(--bs-nav-tabs-border-width) solid #0080AA;
+    border-bottom: var(--bs-nav-tabs-border-width) solid #0080aa;
 }
 
 nav.tabs ul .nav-item a:hover {
@@ -703,7 +710,7 @@ nav.tabs ul .nav-item a:hover {
 }
 
 nav.tabs ul .nav-item.active a:hover {
-    background-color: #0080AA;
+    background-color: #0080aa;
 }
 
 // alerts
@@ -732,11 +739,11 @@ div.alert-warning button.btn-close {
 }
 
 div.alert-danger {
-    background-color: #D91717;
+    background-color: #d91717;
 }
 
 div.alert-success {
-    background-color: #008535;
+    background-color: #007e33;
 }
 
 div.alert-warning {
