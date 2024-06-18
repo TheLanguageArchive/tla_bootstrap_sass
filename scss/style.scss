@@ -702,7 +702,11 @@ nav.tabs ul .nav-item a {
 }
 
 nav.tabs ul .nav-item.active a {
-    border-bottom: var(--bs-nav-tabs-border-width) solid #0080aa;
+    background-color: #007da3;
+}
+
+nav.tabs ul .nav-item.active a {
+    border-bottom: var(--bs-nav-tabs-border-width) solid #007da3;
 }
 
 nav.tabs ul .nav-item a:hover {
@@ -710,8 +714,10 @@ nav.tabs ul .nav-item a:hover {
 }
 
 nav.tabs ul .nav-item.active a:hover {
-    background-color: #0080aa;
+    background-color: #007da3;
 }
+
+
 
 // alerts
 div.alert {
@@ -740,6 +746,11 @@ div.alert-warning button.btn-close {
 
 div.alert-danger {
     background-color: #d91717;
+}
+
+div.alert-danger a {
+    color: white;
+    text-decoration: underline;
 }
 
 div.alert-success {

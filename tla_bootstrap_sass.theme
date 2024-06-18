@@ -56,3 +56,21 @@ function tla_bootstrap_sass_preprocess_block(&$variables) {
     $variables['#cache']['contexts'][] = 'user';
   }
 }
+
+/**
+ * Implements hook_form_alter().
+ *
+ * Add aria-label to search form for accessibility.
+ */
+function tla_bootstrap_sass_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  ddm($form_id);
+  // Check for the specific form ID.
+  if (strpos($form_id, 'search_form') === 0) {
+    ddm('search form altered');
+    // Check for the specific form element by name.
+    if (isset($form['search-textfield'])) {
+      // Add your attribute to the form element.
+      $form['search-textfield']['#attributes']['aria-label'] = 'Enter search term';
+    }
+  }
+}
