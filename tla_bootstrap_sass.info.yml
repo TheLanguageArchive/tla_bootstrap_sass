@@ -3,7 +3,7 @@ type: theme
 description: 'Bootstrap Barrio SASS SubTheme for TLA.'
 # version: VERSION
 core: 8.x
-core_version_requirement: ^8 || ^9 || ^10
+core_version_requirement: ^8 || ^9 || ^10 || ^11
 base theme: bootstrap_barrio
 dependencies:
   - flat_deposit:flat_deposit
