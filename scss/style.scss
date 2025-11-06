@@ -766,3 +766,49 @@ div.alert-info {
     background-color: #066bc6;
     color: white;
 }
+
+// access level lables
+
+div.flat-compound-thumbs .permission-labels {
+    clear: none;
+    padding: 4px 0px 0px 0px;
+}
+
+td.views-field-access-level span.access {
+        color: white;
+        padding: 4px 4px;
+        text-align: center;
+        text-decoration: none;
+        border-radius: 4px;
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        -ms-border-radius: 4px;
+        -o-border-radius: 4px;
+        width: 80px;
+        margin: 3px;
+        display: inline-block;
+        font-size: 0.8em;
+}
+
+
+td.views-field-access-level span.Open {
+    background: #007e33;
+    border: 1px solid #006b36;
+}
+
+td.views-field-access-level span.Registered {
+    color: #262626;
+    background: #fff12d;
+    border: 1px solid #d8cc24;
+}
+
+td.views-field-access-level span.Academic {
+    background: #007da3;
+    border: 1px solid #02607d;
+}
+
+td.views-field-access-level span.Restricted {
+    color: #262626;
+    background: #fc9d03;
+    border: 1px solid #d58400;
+}
