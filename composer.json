@@ -1,6 +1,6 @@
 {
 	"name": "drupal/tla_bootstrap_sass",
-	"type": "drupal-custom-theme",
+	"type": "drupal-theme",
 	"description": "SASS subtheme for Barrio Theme.",
 	"homepage": "http://drupal.org/project/tla_bootstrap_sass",
 	"license": "GPL-2.0+",
