@@ -180,11 +180,15 @@ button[type="submit"],
 #edit-submit,
 button#edit-submit,
 input#edit-submit,
+#flat_cmdi_form_wrapper #edit-submit,
+#flat_cmdi_form_wrapper button#edit-submit,
+#flat_cmdi_form_wrapper input#edit-submit,
+#flat_cmdi_form_wrapper .form-submit,
 #search-block-form button,
 .search-form button,
 #block-tla-bootstrap-sass-search button,
 .btn-primary {
-  background-color: #bbdefb !important; /* More vibrant light blue */
+  background-color: #8cc5f3 !important; /* Slightly more saturated blue to ensure it's not gray */
   border: 1px solid #07426e !important;
   color: #07426e !important;
 }
@@ -193,13 +197,15 @@ input[type="submit"]:hover,
 button[type="submit"]:hover, 
 .form-submit:hover,
 #edit-submit:hover,
+#flat_cmdi_form_wrapper #edit-submit:hover,
 .btn-primary:hover {
-  background-color: #90caf9 !important;
+  background-color: #64b5f6 !important;
 }
 
 /* Fix Submit Button Checkmark Icon (Hardcoded Data URI) */
 #edit-submit::before,
 button#edit-submit::before,
+#flat_cmdi_form_wrapper #edit-submit::before,
 .btn-primary::before {
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%2307426e' d='M2.3 6.73.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e") !important;
   background-size: contain !important;
@@ -288,7 +294,7 @@ header#header .region-header {
 
 #block-tla-bootstrap-sass-account-menu .button img {
   border-radius: 50%;
-  border: 1px solid var(--bs-gray-300);
+  border: 1px solid var(--bs-gray-300) !important;
   width: 40px;
   height: 40px;
 }
@@ -303,12 +309,13 @@ header#header .region-header {
   background-color: white !important;
   box-shadow: 0 4px 12px rgba(0,0,0,0.15) !important;
   border: 1px solid var(--bs-gray-200) !important;
+  border-top: none !important; /* Fix "line" at the top */
   border-radius: 8px !important;
   padding: 0 !important;
-  margin: 0 !important; /* Removed top margin */
+  margin: 0 !important; 
   min-width: 180px !important;
   z-index: 2000 !important;
-  display: none; /* Let the toggle script handle this */
+  display: none;
 }
 
 /* Ensure the menu shows up when the toggle script adds .show or when the button is active */
@@ -320,7 +327,7 @@ header#header .region-header {
   display: block !important;
 }
 
-/* Force vertical alignment for the menu items */
+/* Force vertical alignment for the menu items and remove flex-row */
 #block-tla-bootstrap-sass-account-menu ul.menu,
 #block-tla-bootstrap-sass-account-menu ul.dropdown-menu {
   display: flex !important;
@@ -331,6 +338,7 @@ header#header .region-header {
 #block-tla-bootstrap-sass-account-menu .button ul.menu > li {
   margin: 0 !important;
   width: 100% !important;
+  border-top: none !important; /* Remove any divider lines */
 }
 
 #block-tla-bootstrap-sass-account-menu .button ul.dropdown-menu > li > a,
@@ -340,6 +348,12 @@ header#header .region-header {
   color: var(--bs-gray-800) !important;
   text-decoration: none !important;
   text-align: left !important;
+}
+
+/* Fix first item padding to remove gap at top */
+#block-tla-bootstrap-sass-account-menu .button ul.dropdown-menu > li:first-child > a,
+#block-tla-bootstrap-sass-account-menu .button ul.menu > li:first-child > a {
+  padding-top: 12px !important;
 }
 
 #block-tla-bootstrap-sass-account-menu .button ul.dropdown-menu > li > a:hover,
