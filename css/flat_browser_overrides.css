@@ -38,7 +38,7 @@
   --bs-gray-900: #ffffff;
 }
 
-/* Ensure buttons use the new variables */
+/* Ensure buttons use the new variables and "Flat" styling */
 .btn, 
 .btn-primary, 
 .btn-secondary, 
@@ -63,14 +63,40 @@
   padding: 8px 16px !important;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05) !important;
   transition: all 0.2s ease !important;
+  
+  /* Color Overrides: Light Background, Dark Outline, Dark Text */
+  background-color: var(--bs-white) !important;
+  border: 1px solid var(--bs-gray-300) !important;
+  color: var(--bs-gray-700) !important;
 }
 
-/* Primary Button color (preserving the main dark blue) */
+.btn:hover,
+.btn-primary:hover,
+.btn-secondary:hover {
+  background-color: var(--bs-gray-50) !important;
+  border-color: var(--bs-gray-400) !important;
+  color: var(--bs-gray-900) !important;
+}
+
+/* Specific "Primary" styling - still light background but maybe a subtle hint or stronger border */
 .btn-primary {
-  --bs-btn-bg: #07426e;
-  --bs-btn-border-color: #07426e;
-  --bs-btn-hover-bg: #06385e;
-  --bs-btn-hover-border-color: #063558;
+  border-color: #07426e !important; /* Using the theme's dark blue for the outline */
+  color: #07426e !important;
+}
+
+.btn-primary:hover {
+  background-color: #e6ecf4 !important; /* Light blue-ish gray from flat_browser */
+  border-color: #07426e !important;
+  color: #06385e !important;
+}
+
+/* Ensure icons inside buttons inherit the color */
+.btn .v-fb-icon,
+.btn .icon-svg,
+.btn i,
+.btn svg {
+  color: inherit !important;
+  fill: currentColor !important;
 }
 
 /* Header fix for User Account Menu */
