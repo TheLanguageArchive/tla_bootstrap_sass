@@ -307,7 +307,7 @@ button[type="submit"]:before {
 }
 
 /* Ensure the menu shows up when the toggle script adds .show or when hovering */
-#block-tla-bootstrap-sass-account-menu:hover ul,
+#block-tla-bootstrap-sass-account-menu:hover .button ul,
 #block-tla-bootstrap-sass-account-menu:hover .dropdown-menu,
 #block-tla-bootstrap-sass-account-menu .button:hover ul,
 #block-tla-bootstrap-sass-account-menu .button.active ul,
@@ -316,13 +316,35 @@ button[type="submit"]:before {
 #block-tla-bootstrap-sass-account-menu .button ul.show,
 #block-tla-bootstrap-sass-account-menu .dropdown-menu.show,
 .dropdown-menu.show {
-  display: flex !important; /* Changed to flex to support vertical column */
+  display: flex !important;
   flex-direction: column !important;
   height: auto !important;
   opacity: 1 !important;
   visibility: visible !important;
   border: 1px solid var(--bs-gray-200) !important;
   border-top: none !important; 
+  overflow: visible !important; /* Allow children to show */
+}
+
+/* Specificity fix: Ensure hover rule beats the ultra-specific hidden rule */
+#block-tla-bootstrap-sass-account-menu:hover .button ul.dropdown-menu,
+#block-tla-bootstrap-sass-account-menu:hover .button ul.menu,
+#block-tla-bootstrap-sass-account-menu:hover .dropdown-menu {
+  display: flex !important;
+  visibility: visible !important;
+  height: auto !important;
+  opacity: 1 !important;
+  overflow: visible !important;
+}
+
+/* Ensure children are explicitly visible when parent is shown */
+#block-tla-bootstrap-sass-account-menu:hover ul li,
+#block-tla-bootstrap-sass-account-menu:hover ul li a,
+.dropdown-menu.show li,
+.dropdown-menu.show li a {
+  visibility: visible !important;
+  opacity: 1 !important;
+  display: block !important;
 }
 
 #block-tla-bootstrap-sass-account-menu .button ul.dropdown-menu > li,
