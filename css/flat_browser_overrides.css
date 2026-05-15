@@ -306,7 +306,10 @@ button[type="submit"]:before {
   overflow: hidden !important;
 }
 
-/* Ensure the menu shows up when the toggle script adds .show or when the button is active */
+/* Ensure the menu shows up when the toggle script adds .show or when hovering */
+#block-tla-bootstrap-sass-account-menu:hover ul,
+#block-tla-bootstrap-sass-account-menu:hover .dropdown-menu,
+#block-tla-bootstrap-sass-account-menu .button:hover ul,
 #block-tla-bootstrap-sass-account-menu .button.active ul,
 #block-tla-bootstrap-sass-account-menu .button.show ul,
 #block-tla-bootstrap-sass-account-menu .dropdown.show .dropdown-menu,
