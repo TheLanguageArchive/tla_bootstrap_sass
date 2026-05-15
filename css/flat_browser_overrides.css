@@ -14,7 +14,10 @@
   --bs-gray-900: #111827;
 
   /* Button Styling Overrides */
-  --bs-btn-border-radius: 8px;
+  --bs-border-radius: 8px !important;
+  --bs-border-radius-sm: 4px !important;
+  --bs-border-radius-lg: 12px !important;
+  --bs-btn-border-radius: 8px !important;
   --bs-btn-font-size: 13px;
   --bs-btn-font-weight: 500;
   --bs-btn-padding-x: 16px;
@@ -36,11 +39,28 @@
 }
 
 /* Ensure buttons use the new variables */
-.btn {
-  border-radius: var(--bs-btn-border-radius) !important;
-  font-size: var(--bs-btn-font-size) !important;
-  font-weight: var(--bs-btn-font-weight) !important;
-  padding: var(--bs-btn-padding-y) var(--bs-btn-padding-x) !important;
+.btn, 
+.btn-primary, 
+.btn-secondary, 
+.btn-success, 
+.btn-info, 
+.btn-warning, 
+.btn-danger, 
+.btn-light, 
+.btn-dark, 
+.btn-outline-primary,
+.btn-outline-secondary,
+.btn-outline-success,
+.btn-outline-info,
+.btn-outline-warning,
+.btn-outline-danger,
+.btn-outline-light,
+.btn-outline-dark {
+  --bs-btn-border-radius: 8px !important;
+  border-radius: 8px !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  padding: 8px 16px !important;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05) !important;
   transition: all 0.2s ease !important;
 }
