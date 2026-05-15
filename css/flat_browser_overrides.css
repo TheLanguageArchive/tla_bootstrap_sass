@@ -132,7 +132,9 @@
 button[type="submit"],
 input[type="submit"],
 .btn-primary,
-#block-tla-bootstrap-sass-search .btn {
+#block-tla-bootstrap-sass-search .btn,
+form[id^="search-"] button,
+.search-form button {
   background-color: #e6ecf4 !important; /* Subtle blue background */
   border-color: #07426e !important;
   color: #07426e !important;
@@ -141,7 +143,9 @@ input[type="submit"],
 button[type="submit"]:hover,
 input[type="submit"]:hover,
 .btn-primary:hover,
-#block-tla-bootstrap-sass-search .btn:hover {
+#block-tla-bootstrap-sass-search .btn:hover,
+form[id^="search-"] button:hover,
+.search-form button:hover {
   background-color: #d1dceb !important;
 }
 
@@ -153,7 +157,10 @@ input[type="submit"]:hover,
 .btn .media-icon svg,
 #flat_cmdi_form_wrapper button svg,
 #flat_cmdi_form_wrapper button:before,
-#flat_cmdi_form_wrapper button:after {
+#flat_cmdi_form_wrapper button:after,
+form[id^="search-"] button:before,
+form[id^="search-"] button i,
+form[id^="search-"] button svg {
   color: inherit !important;
   fill: currentColor !important;
   stroke: currentColor !important;
