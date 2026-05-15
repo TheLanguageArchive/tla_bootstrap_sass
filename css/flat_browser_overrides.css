@@ -251,6 +251,8 @@ header#header .container {
   border: none !important;
   box-shadow: none !important;
   width: auto !important;
+  overflow: visible !important; /* Ensure dropdown isn't clipped */
+  position: relative !important; /* Anchor for the dropdown */
 }
 
 /* Fix Icon visibility for the toggle ONLY */
@@ -281,6 +283,7 @@ header#header .container {
   list-style: none !important;
   margin: 0 !important;
   padding: 0 !important;
+  overflow: visible !important;
 }
 
 /* Fix User Menu Dropdown positioning and aesthetics */
@@ -292,15 +295,27 @@ header#header .container {
   background-color: #ffffff !important;
   box-shadow: 0 4px 12px rgba(0,0,0,0.2) !important;
   border: 1px solid #d1d5db !important;
-  border-radius: 8px !important; /* Rounded all corners */
+  border-radius: 8px !important; 
   padding: 8px 0 !important;
   min-width: 200px !important;
   z-index: 9999 !important;
-  margin-top: 8px !important; /* Small gap for breathing room */
+  margin-top: 10px !important; /* Visual gap */
   display: none !important;
   visibility: hidden !important;
   opacity: 0 !important;
   transition: opacity 0.2s ease, visibility 0.2s ease !important;
+}
+
+/* Hover Bridge: Invisible pseudo-element to bridge the 10px gap between toggle and dropdown */
+#block-tla-bootstrap-sass-account-menu .dropdown-menu::before {
+  content: "" !important;
+  position: absolute !important;
+  top: -15px !important;
+  left: 0 !important;
+  right: 0 !important;
+  height: 15px !important;
+  background: transparent !important;
+  display: block !important;
 }
 
 /* Show dropdown on hover */
