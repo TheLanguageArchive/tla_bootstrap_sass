@@ -176,22 +176,30 @@ form[id^="search-"] button svg {
 /* User Menu: Restore non-button appearance but keep positioning */
 #block-tla-bootstrap-sass-account-menu {
   position: relative;
-  z-index: 100; /* Ensure it stays above other content */
+  z-index: 100;
+}
+
+/* Hide the label/heading above the user menu */
+#block-tla-bootstrap-sass-account-menu h2,
+#block-tla-bootstrap-sass-account-menu .label,
+#block-tla-bootstrap-sass-account-menu [id^="block-"][id$="-menu"] > h2 {
+  display: none !important;
 }
 
 #block-tla-bootstrap-sass-account-menu .button > a {
   border-radius: 0;
-  background-color: transparent;
-  border: none;
-  color: inherit;
+  background-color: transparent !important;
+  border: none !important;
+  color: inherit !important;
   transition: opacity 0.2s ease;
   padding: 0;
   display: flex;
   align-items: center;
+  box-shadow: none !important;
 }
 
 #block-tla-bootstrap-sass-account-menu .button > a:hover {
-  background-color: transparent;
+  background-color: transparent !important;
   opacity: 0.8;
 }
 
@@ -204,7 +212,7 @@ form[id^="search-"] button svg {
 
 /* Fix User Menu Dropdown positioning */
 #block-tla-bootstrap-sass-account-menu .button ul.dropdown-menu,
-#block-tla-bootstrap-sass-account-menu .button ul {
+#block-tla-bootstrap-sass-account-menu .button ul.menu {
   position: absolute !important;
   top: 100% !important;
   right: 0 !important;
@@ -215,16 +223,60 @@ form[id^="search-"] button svg {
   padding: 8px 0 !important;
   min-width: 180px !important;
   z-index: 1000 !important;
+  margin-top: 5px !important;
 }
 
 /* Fix missing danger icon - use a standard cross if FA is failing */
 .btn-danger:before,
 #flat_cmdi_form_wrapper button.btn-danger:before {
-  content: "×" !important; /* Multiplication sign as fallback */
-  font-family: inherit !important;
-  font-size: 1.2rem !important;
+  content: "×" !important;
+  font-family: Arial, sans-serif !important;
+  font-size: 1.4rem !important;
   font-weight: bold !important;
   line-height: 1 !important;
+  margin-right: 4px;
+}
+
+/* ULTRA AGGRESSIVE Submit / Search button overrides */
+input[type="submit"], 
+button[type="submit"], 
+.form-submit, 
+#edit-submit,
+#search-block-form button,
+.search-form button,
+#block-tla-bootstrap-sass-search button,
+.btn-primary {
+  background-color: #d6e9f8 !important; /* More saturated blue */
+  border: 1px solid #07426e !important;
+  color: #07426e !important;
+}
+
+input[type="submit"]:hover, 
+button[type="submit"]:hover, 
+.form-submit:hover,
+#edit-submit:hover,
+.btn-primary:hover {
+  background-color: #b8d4e9 !important;
+}
+
+/* FORCE icons inside ALL buttons to be dark / inherit / BLUE */
+.btn .v-fb-icon,
+.btn .icon-svg,
+.btn i,
+.btn svg,
+.btn .media-icon svg,
+#flat_cmdi_form_wrapper button svg,
+#flat_cmdi_form_wrapper button:before,
+#flat_cmdi_form_wrapper button:after,
+form[id^="search-"] button:before,
+form[id^="search-"] button i,
+form[id^="search-"] button svg,
+button[type="submit"] i,
+button[type="submit"] svg,
+button[type="submit"]:before {
+  color: inherit !important;
+  fill: currentColor !important;
+  stroke: currentColor !important;
 }
 
 /* Header fix for User Account Menu */
