@@ -291,14 +291,19 @@ button[type="submit"]:before {
   right: 0 !important;
   background-color: white !important;
   box-shadow: 0 4px 12px rgba(0,0,0,0.15) !important;
-  border: 1px solid var(--bs-gray-200) !important;
-  border-top: none !important; 
   border-radius: 8px !important;
   padding: 0 !important;
   margin: 0 !important; 
   min-width: 180px !important;
   z-index: 2000 !important;
-  display: none;
+  
+  /* Definitive hidden state to prevent "ghost" lines */
+  display: none !important;
+  border: none !important;
+  height: 0 !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  overflow: hidden !important;
 }
 
 /* Ensure the menu shows up when the toggle script adds .show or when the button is active */
@@ -306,15 +311,15 @@ button[type="submit"]:before {
 #block-tla-bootstrap-sass-account-menu .button.show ul,
 #block-tla-bootstrap-sass-account-menu .dropdown.show .dropdown-menu,
 #block-tla-bootstrap-sass-account-menu .button ul.show,
+#block-tla-bootstrap-sass-account-menu .dropdown-menu.show,
 .dropdown-menu.show {
-  display: block !important;
-}
-
-/* Force vertical alignment for the menu items and remove flex-row */
-#block-tla-bootstrap-sass-account-menu ul.menu,
-#block-tla-bootstrap-sass-account-menu ul.dropdown-menu {
-  display: flex !important;
+  display: flex !important; /* Changed to flex to support vertical column */
   flex-direction: column !important;
+  height: auto !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  border: 1px solid var(--bs-gray-200) !important;
+  border-top: none !important; 
 }
 
 #block-tla-bootstrap-sass-account-menu .button ul.dropdown-menu > li,
