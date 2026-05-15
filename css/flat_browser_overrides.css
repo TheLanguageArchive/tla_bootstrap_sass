@@ -128,14 +128,14 @@
   color: inherit !important;
 }
 
-/* Submit / Primary buttons - Use Saturated Theme Blue */
+/* Submit / Primary buttons - Refined Blue (Desaturated but definitely blue) */
 button[type="submit"],
 input[type="submit"],
 .btn-primary,
 #block-tla-bootstrap-sass-search .btn,
 form[id^="search-"] button,
 .search-form button {
-  background-color: #eef6fc !important; /* Lighter but more blue */
+  background-color: #e8f1f8 !important; /* Desaturated Blue */
   border-color: #07426e !important;
   color: #07426e !important;
 }
@@ -146,7 +146,7 @@ input[type="submit"]:hover,
 #block-tla-bootstrap-sass-search .btn:hover,
 form[id^="search-"] button:hover,
 .search-form button:hover {
-  background-color: #d1e8f5 !important;
+  background-color: #dbe9f4 !important;
 }
 
 /* FORCE icons inside ALL buttons to be dark / inherit */
@@ -173,232 +173,188 @@ form[id^="search-"] button svg {
   fill: currentColor !important;
 }
 
-/* ULTRA AGGRESSIVE Submit / Search button overrides */
-input[type="submit"], 
-button[type="submit"], 
-.form-submit, 
-#edit-submit,
-button#edit-submit,
-input#edit-submit,
-#flat_cmdi_form_wrapper #edit-submit,
-#flat_cmdi_form_wrapper button#edit-submit,
-#flat_cmdi_form_wrapper input#edit-submit,
-#flat_cmdi_form_wrapper .form-submit,
-#search-block-form button,
-.search-form button,
-#block-tla-bootstrap-sass-search button,
-.btn-primary {
-  background-color: #dbe5eb !important; /* Desaturated blue that matches the branding */
-  border: 1px solid #07426e !important;
-  color: #07426e !important;
+/* User Menu: Stable Restoration with Blue Circle Styling */
+#CollapsingNavbar,
+.region-header,
+header#header .container {
+  max-width: 100% !important;
+  width: 100% !important;
+  overflow: visible !important;
+  display: flex !important;
 }
 
-input[type="submit"]:hover, 
-button[type="submit"]:hover, 
-.form-submit:hover,
-#edit-submit:hover,
-#flat_cmdi_form_wrapper #edit-submit:hover,
-.btn-primary:hover {
-  background-color: #c9d8e1 !important;
-}
-
-/* Fix Submit Button Checkmark Icon (Hardcoded Data URI) */
-#edit-submit::before,
-button#edit-submit::before,
-#flat_cmdi_form_wrapper #edit-submit::before,
-.btn-primary::before {
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%2307426e' d='M2.3 6.73.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e") !important;
-  background-size: contain !important;
-  background-repeat: no-repeat !important;
-}
-
-/* FORCE icons inside ALL buttons to be dark / inherit / BLUE */
-.btn .v-fb-icon,
-.btn .icon-svg,
-.btn i,
-.btn svg,
-.btn .media-icon svg,
-#flat_cmdi_form_wrapper button svg,
-#flat_cmdi_form_wrapper button:before,
-#flat_cmdi_form_wrapper button:after,
-form[id^="search-"] button:before,
-form[id^="search-"] button i,
-form[id^="search-"] button svg,
-button[type="submit"] i,
-button[type="submit"] svg,
-button[type="submit"]:before {
-  color: inherit !important;
-  fill: currentColor !important;
-  stroke: currentColor !important;
-}
-
-/* Handle specific svg inner elements if they have fixed fills */
-.btn svg *, 
-.btn .v-fb-icon *,
-#flat_cmdi_form_wrapper button svg * {
-  fill: currentColor !important;
-}
-
-/* User Menu: Restore non-button appearance but keep positioning */
 #block-tla-bootstrap-sass-account-menu {
-  position: relative;
-  z-index: 1000;
+  position: relative !important;
+  z-index: 1001;
   margin-left: auto !important;
+  width: 40px !important;
+  height: 40px !important;
+  min-width: 40px !important;
+  min-height: 40px !important;
+  display: flex !important; /* Changed from block to flex for better alignment */
+  align-items: center !important;
+  justify-content: center !important;
 }
 
-/* Hide the label/heading above the user menu and remove its space */
 #block-tla-bootstrap-sass-account-menu h2,
-#block-tla-bootstrap-sass-account-menu .label,
-#block-tla-bootstrap-sass-account-menu [id^="block-"][id$="-menu"] > h2 {
+#block-tla-bootstrap-sass-account-menu .label {
   display: none !important;
-  height: 0 !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  overflow: hidden !important;
 }
 
-#block-tla-bootstrap-sass-account-menu .button > a {
-  border-radius: 0;
+/* Target ONLY the top-level User Toggle Link (Outer Blue Circle) */
+#block-tla-bootstrap-sass-account-menu > .menu-block > .menu > li.button > a {
+  width: 40px !important;
+  height: 40px !important;
+  border-radius: 50% !important;
+  background-color: #07426e !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0 !important;
+  border: 2px solid #ffffff !important;
+  box-shadow: none !important;
+  text-decoration: none !important;
+  overflow: hidden !important;
+  position: relative !important;
+}
+
+/* Explicitly RESET styles for links INSIDE the dropdown to prevent them from being circles */
+#block-tla-bootstrap-sass-account-menu .dropdown-menu a,
+#block-tla-bootstrap-sass-account-menu .dropdown-menu li a,
+#block-tla-bootstrap-sass-account-menu .dropdown-menu a.nav-link--user-login {
+  width: 100% !important;
+  height: auto !important;
+  border-radius: 0 !important; /* Force rectangular for list items */
+  background-color: transparent !important;
+  display: block !important;
+  padding: 12px 20px !important;
+  border: none !important;
+  color: #374151 !important;
+  text-decoration: none !important;
+  filter: none !important;
+}
+
+#block-tla-bootstrap-sass-account-menu .dropdown-menu a:hover,
+#block-tla-bootstrap-sass-account-menu .dropdown-menu li a:hover {
+  background-color: #f3f4f6 !important;
+  color: #111827 !important;
+  border-radius: 0 !important;
+}
+
+/* Remove residual backgrounds from containers to eliminate 'weird boxes' */
+#block-tla-bootstrap-sass-account-menu,
+#block-tla-bootstrap-sass-account-menu .menu-block,
+#block-tla-bootstrap-sass-account-menu .menu,
+#block-tla-bootstrap-sass-account-menu .menu > li.button {
+  background: none !important;
   background-color: transparent !important;
   border: none !important;
-  color: inherit !important;
-  transition: opacity 0.2s ease;
-  padding: 0;
-  display: flex;
-  align-items: center;
   box-shadow: none !important;
+  width: auto !important;
 }
 
-#block-tla-bootstrap-sass-account-menu .button > a:hover {
-  background-color: transparent !important;
-  opacity: 0.8;
+/* Fix Icon visibility for the toggle ONLY */
+#block-tla-bootstrap-sass-account-menu > .menu-block > .menu > li.button > a img {
+  width: 24px !important;
+  height: 24px !important;
+  object-fit: contain !important;
+  filter: brightness(0) invert(1) !important;
+  display: block !important;
+  margin: 0 !important;
+  content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm89.6 32h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4z"/></svg>') !important;
 }
 
-#block-tla-bootstrap-sass-account-menu .button img {
-  border-radius: 50% !important;
-  border: none !important; /* Fix "line" which was actually the img border */
-  width: 40px;
-  height: 40px;
-  box-shadow: 0 0 0 1px var(--bs-gray-300); /* Use shadow for border if needed */
+/* Eliminate Ghost Lines */
+#block-tla-bootstrap-sass-account-menu::before,
+#block-tla-bootstrap-sass-account-menu::after,
+#block-tla-bootstrap-sass-account-menu .button::before,
+#block-tla-bootstrap-sass-account-menu .button::after {
+  display: none !important;
+  content: none !important;
+  height: 0 !important;
+  border: none !important;
 }
 
-/* Fix User Menu Dropdown positioning and ensure visibility */
-#block-tla-bootstrap-sass-account-menu .button ul.dropdown-menu,
-#block-tla-bootstrap-sass-account-menu .button ul.menu,
+/* Ensure the top-level ul.menu is visible */
+#block-tla-bootstrap-sass-account-menu ul.menu {
+  display: block !important;
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Fix User Menu Dropdown positioning and aesthetics */
 #block-tla-bootstrap-sass-account-menu .dropdown-menu {
   position: absolute !important;
   top: 100% !important;
   right: 0 !important;
-  background-color: white !important;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15) !important;
-  border-radius: 8px !important;
-  padding: 0 !important;
-  margin: 0 !important; 
-  min-width: 180px !important;
-  z-index: 2000 !important;
-  
-  /* Definitive hidden state to prevent "ghost" lines */
+  left: auto !important;
+  background-color: #ffffff !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2) !important;
+  border: 1px solid #d1d5db !important;
+  border-radius: 8px !important; /* Rounded all corners */
+  padding: 8px 0 !important;
+  min-width: 200px !important;
+  z-index: 9999 !important;
+  margin-top: 8px !important; /* Small gap for breathing room */
   display: none !important;
-  border: none !important;
-  height: 0 !important;
-  opacity: 0 !important;
   visibility: hidden !important;
-  overflow: hidden !important;
+  opacity: 0 !important;
+  transition: opacity 0.2s ease, visibility 0.2s ease !important;
 }
 
-/* Ensure the menu shows up when the toggle script adds .show or when hovering */
-#block-tla-bootstrap-sass-account-menu:hover .button ul,
+/* Show dropdown on hover */
 #block-tla-bootstrap-sass-account-menu:hover .dropdown-menu,
-#block-tla-bootstrap-sass-account-menu .button:hover ul,
-#block-tla-bootstrap-sass-account-menu .button.active ul,
-#block-tla-bootstrap-sass-account-menu .button.show ul,
-#block-tla-bootstrap-sass-account-menu .dropdown.show .dropdown-menu,
-#block-tla-bootstrap-sass-account-menu .button ul.show,
-#block-tla-bootstrap-sass-account-menu .dropdown-menu.show,
-.dropdown-menu.show {
-  display: flex !important;
-  flex-direction: column !important;
-  height: auto !important;
-  opacity: 1 !important;
-  visibility: visible !important;
-  border: 1px solid var(--bs-gray-200) !important;
-  border-top: none !important; 
-  overflow: visible !important; /* Allow children to show */
-}
-
-/* Specificity fix: Ensure hover rule beats the ultra-specific hidden rule */
-#block-tla-bootstrap-sass-account-menu:hover .button ul.dropdown-menu,
-#block-tla-bootstrap-sass-account-menu:hover .button ul.menu,
-#block-tla-bootstrap-sass-account-menu:hover .dropdown-menu {
-  display: flex !important;
-  visibility: visible !important;
-  height: auto !important;
-  opacity: 1 !important;
-  overflow: visible !important;
-}
-
-/* Ensure children are explicitly visible when parent is shown */
-#block-tla-bootstrap-sass-account-menu:hover ul li,
-#block-tla-bootstrap-sass-account-menu:hover ul li a,
-.dropdown-menu.show li,
-.dropdown-menu.show li a {
-  visibility: visible !important;
-  opacity: 1 !important;
+#block-tla-bootstrap-sass-account-menu .button:hover > .dropdown-menu {
   display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
 }
 
-#block-tla-bootstrap-sass-account-menu .button ul.dropdown-menu > li,
-#block-tla-bootstrap-sass-account-menu .button ul.menu > li {
-  margin: 0 !important;
+/* Nuclear Visibility for items */
+#block-tla-bootstrap-sass-account-menu .dropdown-menu ul,
+#block-tla-bootstrap-sass-account-menu .dropdown-menu li,
+#block-tla-bootstrap-sass-account-menu .dropdown-menu a {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  height: auto !important;
   width: 100% !important;
-  border-top: none !important; /* Remove any divider lines */
-}
-
-#block-tla-bootstrap-sass-account-menu .button ul.dropdown-menu > li > a,
-#block-tla-bootstrap-sass-account-menu .button ul.menu > li > a {
-  padding: 10px 15px !important;
-  display: block !important;
-  color: var(--bs-gray-800) !important;
-  text-decoration: none !important;
+  float: none !important;
+  clear: both !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  list-style: none !important;
+  background: none !important;
   text-align: left !important;
 }
 
-/* Fix first item padding to remove gap at top */
-#block-tla-bootstrap-sass-account-menu .button ul.dropdown-menu > li:first-child > a,
-#block-tla-bootstrap-sass-account-menu .button ul.menu > li:first-child > a {
-  padding-top: 12px !important;
+#block-tla-bootstrap-sass-account-menu .dropdown-menu li a {
+  padding: 12px 20px !important;
+  color: #374151 !important;
+  font-size: 14px !important;
+  border: none !important;
+  line-height: normal !important;
 }
 
-#block-tla-bootstrap-sass-account-menu .button ul.dropdown-menu > li > a:hover,
-#block-tla-bootstrap-sass-account-menu .button ul.menu > li > a:hover {
-  background-color: var(--bs-gray-100) !important;
-  color: var(--bs-gray-900) !important;
+#block-tla-bootstrap-sass-account-menu .dropdown-menu li a:hover {
+  background-color: #f3f4f6 !important;
+  color: #111827 !important;
 }
+
+/* (duplicate link rules removed — superseded by .dropdown-menu li a rules above) */
 
 /* Header fix for User Account Menu */
 header#header .container {
   display: flex !important;
   align-items: center !important;
   justify-content: space-between !important;
-  flex-wrap: wrap;
 }
 
-/* Ensure the header branding and other blocks play nice */
 .region-header {
   display: flex !important;
   align-items: center !important;
   width: 100% !important;
-}
-
-#block-tla-bootstrap-sass-account-menu {
-  margin-left: auto !important;
-}
-
-/* Icons alignment (if any SVGs are used) */
-.v-fb-icon, .icon-svg {
-  width: 20px;
-  height: 20px;
-  vertical-align: middle;
 }
 
 /* Alert/Message Colors Alignment */
