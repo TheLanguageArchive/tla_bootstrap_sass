@@ -5,6 +5,7 @@ global-styling:
   css:
     component:
       css/style.css: {}
+      css/flat_browser_overrides.css: {}
   dependencies:
     - core/jquery
     - core/drupal
