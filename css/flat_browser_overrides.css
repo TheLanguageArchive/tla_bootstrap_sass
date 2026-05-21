@@ -128,25 +128,31 @@
   color: inherit !important;
 }
 
-/* Submit / Primary buttons - Refined Blue (Desaturated but definitely blue) */
+/* Submit / Primary buttons - Restored vibrant subtle blue */
 button[type="submit"],
 input[type="submit"],
+.form-submit,
 .btn-primary,
+#flat_cmdi_form_wrapper button.btn-primary,
+#flat_cmdi_form_wrapper .form-submit,
 #block-tla-bootstrap-sass-search .btn,
 form[id^="search-"] button,
 .search-form button {
-  background-color: #e8f1f8 !important; /* Desaturated Blue */
+  background-color: #d1dceb !important; /* Slightly more blue than before */
   border-color: #07426e !important;
   color: #07426e !important;
 }
 
 button[type="submit"]:hover,
 input[type="submit"]:hover,
+.form-submit:hover,
 .btn-primary:hover,
+#flat_cmdi_form_wrapper button.btn-primary:hover,
+#flat_cmdi_form_wrapper .form-submit:hover,
 #block-tla-bootstrap-sass-search .btn:hover,
 form[id^="search-"] button:hover,
 .search-form button:hover {
-  background-color: #dbe9f4 !important;
+  background-color: #c2d1e6 !important;
 }
 
 /* FORCE icons inside ALL buttons to be dark / inherit */
@@ -171,6 +177,19 @@ form[id^="search-"] button svg {
 .btn .v-fb-icon *,
 #flat_cmdi_form_wrapper button svg * {
   fill: currentColor !important;
+}
+
+/* Fix Bootstrap Icons (checkmark, search, etc.) which are hardcoded to white in the theme */
+.form-submit::before {
+  background-image: url('data:image/svg+xml,<svg class="bi bi-check" width="1em" height="1em" viewBox="0 0 16 16" fill="%2307426e" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M13.854 3.646a.5.5 0 010 .708l-7 7a.5.5 0 01-.708 0l-3.5-3.5a.5.5 0 11.708-.708L6.5 10.293l6.646-6.647a.5.5 0 01.708 0z" clip-rule="evenodd"/></svg>') !important;
+}
+
+.search-form .form-submit::before {
+  background-image: url('data:image/svg+xml,<svg class="bi bi-search" width="1em" height="1em" viewBox="0 0 16 16" fill="%2307426e" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.442 10.442a1 1 0 011.415 0l3.85 3.85a1 1 0 01-1.414 1.415l-3.85-3.85a1 1 0 010-1.415z" clip-rule="evenodd"/><path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 100-11 5.5 5.5 0 000 11zM13 6.5a6.5 6.5 0 11-13 0 6.5 6.5 0 0113 0z" clip-rule="evenodd"/></svg>') !important;
+}
+
+a.nav-link--::before {
+  background-image: url('data:image/svg+xml,<svg class="bi bi-house" width="1em" height="1em" viewBox="0 0 16 16" fill="%2307426e" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M2 13.5V7h1v6.5a.5.5 0 00.5.5h9a.5.5 0 00.5-.5V7h1v6.5a1.5 1.5 0 01-1.5 1.5h-9A1.5 1.5 0 012 13.5zm11-11V6l-2-2V2.5a.5.5 0 01.5-.5h1a.5.5 0 01.5.5z" clip-rule="evenodd"/><path fill-rule="evenodd" d="M7.293 1.5a1 1 0 011.414 0l6.647 6.646a.5.5 0 01-.708.708L8 2.207 1.354 8.854a.5.5 0 11-.708-.708L7.293 1.5z" clip-rule="evenodd"/></svg>') !important;
 }
 
 /* User Menu: Stable Restoration with Blue Circle Styling */
@@ -244,15 +263,26 @@ header#header .container {
 /* Remove residual backgrounds from containers to eliminate 'weird boxes' */
 #block-tla-bootstrap-sass-account-menu,
 #block-tla-bootstrap-sass-account-menu .menu-block,
-#block-tla-bootstrap-sass-account-menu .menu,
-#block-tla-bootstrap-sass-account-menu .menu > li.button {
+#block-tla-bootstrap-sass-account-menu .menu {
   background: none !important;
   background-color: transparent !important;
   border: none !important;
   box-shadow: none !important;
   width: auto !important;
-  overflow: visible !important; /* Ensure dropdown isn't clipped */
-  position: relative !important; /* Anchor for the dropdown */
+  overflow: visible !important;
+  display: flex !important;
+  justify-content: flex-end !important;
+}
+
+#block-tla-bootstrap-sass-account-menu .menu > li.button {
+  position: relative !important; /* Critical anchor for absolute dropdown */
+  display: inline-block !important;
+  width: 40px !important; /* Match icon width */
+  height: 40px !important;
+  background: none !important;
+  border: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 /* Fix Icon visibility for the toggle ONLY */
@@ -279,7 +309,7 @@ header#header .container {
 
 /* Ensure the top-level ul.menu is visible */
 #block-tla-bootstrap-sass-account-menu ul.menu {
-  display: block !important;
+  display: flex !important;
   list-style: none !important;
   margin: 0 !important;
   padding: 0 !important;
@@ -290,14 +320,15 @@ header#header .container {
 #block-tla-bootstrap-sass-account-menu .dropdown-menu {
   position: absolute !important;
   top: 100% !important;
-  right: 0 !important;
+  right: 0 !important; /* Align to the right edge of the 40px .button */
   left: auto !important;
+  width: max-content !important; /* Only as wide as content */
+  min-width: 180px !important;
   background-color: #ffffff !important;
   box-shadow: 0 4px 12px rgba(0,0,0,0.2) !important;
   border: 1px solid #d1d5db !important;
   border-radius: 8px !important; 
   padding: 8px 0 !important;
-  min-width: 200px !important;
   z-index: 9999 !important;
   margin-top: 10px !important; /* Visual gap */
   display: none !important;
@@ -326,8 +357,25 @@ header#header .container {
   opacity: 1 !important;
 }
 
-/* Nuclear Visibility for items */
-#block-tla-bootstrap-sass-account-menu .dropdown-menu ul,
+/* Nuclear Visibility for items - Force the inner list to stay within the parent DIV */
+#block-tla-bootstrap-sass-account-menu .dropdown-menu > ul,
+#block-tla-bootstrap-sass-account-menu .dropdown-menu ul.menu,
+#block-tla-bootstrap-sass-account-menu .dropdown-menu ul {
+  position: static !important; /* Force static to ensure it contributes to parent DIV height */
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  height: auto !important;
+  min-height: 10px !important;
+  width: 100% !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  list-style: none !important;
+  background: none !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
 #block-tla-bootstrap-sass-account-menu .dropdown-menu li,
 #block-tla-bootstrap-sass-account-menu .dropdown-menu a {
   display: block !important;
@@ -342,6 +390,7 @@ header#header .container {
   list-style: none !important;
   background: none !important;
   text-align: left !important;
+  position: static !important; /* Also force items to static */
 }
 
 #block-tla-bootstrap-sass-account-menu .dropdown-menu li a {
@@ -402,4 +451,16 @@ header#header .container {
   border-right: none !important;
   border-bottom: none !important;
   border-radius: 4px !important;
+}
+
+/* Remove vertical margins from main content wrapper */
+.layout-main-wrapper {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+/* Remove Bootstrap gutter padding from the main content column */
+.row > main {
+  padding-left: 0;
+  padding-right: 0;
 }
