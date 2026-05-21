@@ -454,7 +454,7 @@ header#header .container {
 }
 
 /* Remove vertical margins from main content wrapper */
-.layout-main-wrapper {
+#main-wrapper.layout-main-wrapper {
   margin-top: 0 !important;
   margin-bottom: 0 !important;
 }
@@ -463,4 +463,9 @@ header#header .container {
 .row > main {
   padding-left: 0;
   padding-right: 0;
+}
+
+/* Remove bottom margin from header */
+.header {
+  margin-bottom: 0 !important;
 }
