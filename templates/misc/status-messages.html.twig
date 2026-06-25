@@ -75,10 +75,9 @@
 				<svg class="bi flex-shrink-0 me-4" role="img" fill="#ffffff" aria-label="Warning:"><use xlink:href="#exclamation-triangle-fill"/></svg>
 			{% endif %}
 			<div>
-				<h2 id="{{ title_ids[type] }}" class="alert-heading">
+				<h2 id="{{ title_ids[type] }}" class="visually-hidden">
 					{{ status_headings[type] }}
 				</h2>
-				<hr>
 				{% for message in messages %}
 					{% if loop.last %}
 						{{ message }}

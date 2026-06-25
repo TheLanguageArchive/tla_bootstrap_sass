@@ -281,7 +281,7 @@ header#header .container {
   height: 40px !important;
   background: none !important;
   border: none !important;
-  margin: 0 !important;
+  margin: 0 8px 0 0 !important;
   padding: 0 !important;
 }
 
@@ -320,41 +320,51 @@ header#header .container {
 #block-tla-bootstrap-sass-account-menu .dropdown-menu {
   position: absolute !important;
   top: 100% !important;
-  right: 0 !important; /* Align to the right edge of the 40px .button */
+  right: 0 !important;
   left: auto !important;
-  width: max-content !important; /* Only as wide as content */
+  width: max-content !important;
   min-width: 180px !important;
   background-color: #ffffff !important;
   box-shadow: 0 4px 12px rgba(0,0,0,0.2) !important;
   border: 1px solid #d1d5db !important;
-  border-radius: 8px !important; 
+  border-radius: 8px !important;
   padding: 8px 0 !important;
   z-index: 9999 !important;
-  margin-top: 10px !important; /* Visual gap */
-  display: none !important;
+  margin-top: 10px !important;
+  /* display:block always so we can transition visibility/opacity.
+     pointer-events:none keeps the invisible box from catching hovers
+     before the button is hovered. */
+  display: block !important;
   visibility: hidden !important;
   opacity: 0 !important;
-  transition: opacity 0.2s ease, visibility 0.2s ease !important;
+  pointer-events: none !important;
+  transition: opacity 0.15s ease 0.15s, visibility 0.15s ease 0.15s !important;
 }
 
-/* Hover Bridge: Invisible pseudo-element to bridge the 10px gap between toggle and dropdown */
-#block-tla-bootstrap-sass-account-menu .dropdown-menu::before {
-  content: "" !important;
-  position: absolute !important;
-  top: -15px !important;
-  left: 0 !important;
-  right: 0 !important;
-  height: 15px !important;
-  background: transparent !important;
-  display: block !important;
-}
-
-/* Show dropdown on hover */
-#block-tla-bootstrap-sass-account-menu:hover .dropdown-menu,
+/* Show dropdown on hover — no delay when appearing. Scoped to the menu itself
+   (not the whole block) so the adjacent selection icon doesn't open it. */
+#block-tla-bootstrap-sass-account-menu .menu-block:hover .dropdown-menu,
 #block-tla-bootstrap-sass-account-menu .button:hover > .dropdown-menu {
   display: block !important;
   visibility: visible !important;
   opacity: 1 !important;
+  pointer-events: auto !important;
+  transition: opacity 0.15s ease, visibility 0.15s ease !important;
+}
+
+/* Bridge pseudo-element: covers the 10px gap between button and dropdown
+   so .button:hover stays active while the cursor crosses the gap.
+   Higher specificity than the ghost-line suppression rule above. */
+#block-tla-bootstrap-sass-account-menu .menu > li.button::after {
+  content: "" !important;
+  display: block !important;
+  position: absolute !important;
+  top: 100% !important;
+  left: 0 !important;
+  right: 0 !important;
+  height: 14px !important;
+  background: transparent !important;
+  pointer-events: auto !important;
 }
 
 /* Nuclear Visibility for items - Force the inner list to stay within the parent DIV */
@@ -463,9 +473,94 @@ header#header .container {
 .row > main {
   padding-left: 0;
   padding-right: 0;
+  padding-top: 0 !important;
+}
+
+/* Remove any gap between main and its section child */
+main > section.section {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
 }
 
 /* Remove bottom margin from header */
 .header {
   margin-bottom: 0 !important;
+}
+
+/* FLAT ZIP Download: sit the selection icon just left of the user-account icon.
+   flat_zip_download.js injects the badge as a direct child of the account block,
+   ahead of the .menu-block, and adds the .has-flat-zip-download marker class. */
+#block-tla-bootstrap-sass-account-menu.has-flat-zip-download {
+  width: auto !important; /* Room for both icons, not just the 40px user one. */
+  gap: 12px !important; /* Space between the selection and the user icon. */
+}
+
+/* White glyph at the same 40px footprint as the user icon, on the dark navbar. */
+#block-tla-bootstrap-sass-account-menu .flat-zip-download-badge {
+  width: 40px !important;
+  height: 40px !important;
+  color: #ffffff !important;
+}
+
+/* Header icon alignment: selection, favourites and user menu share one rhythm. */
+#block-tla-bootstrap-sass-account-menu.has-flat-zip-download,
+#block-tla-bootstrap-sass-account-menu.has-flat-browser-favourites {
+  width: auto !important;
+  min-width: auto !important;
+  height: 40px !important;
+  min-height: 40px !important;
+  gap: 12px !important;
+  align-items: center !important;
+}
+
+#block-tla-bootstrap-sass-account-menu .flat-zip-download-badge,
+#block-tla-bootstrap-sass-account-menu .flat-browser-favourites-badge,
+#block-tla-bootstrap-sass-account-menu > .menu-block > .menu > li.button > a {
+  width: 40px !important;
+  height: 40px !important;
+  min-width: 40px !important;
+  min-height: 40px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0 !important;
+  color: #ffffff !important;
+  text-decoration: none !important;
+}
+
+#block-tla-bootstrap-sass-account-menu .flat-zip-download-badge__icon {
+  font-size: 24px !important;
+}
+
+#block-tla-bootstrap-sass-account-menu .flat-browser-favourites-badge__icon {
+  font-size: 26px !important;
+}
+
+#block-tla-bootstrap-sass-account-menu > .menu-block > .menu > li.button {
+  width: 48px !important;
+  height: 40px !important;
+  margin: 0 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+#block-tla-bootstrap-sass-account-menu > .menu-block > .menu > li.button > a {
+  width: 48px !important;
+  min-width: 48px !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  overflow: visible !important;
+}
+
+#block-tla-bootstrap-sass-account-menu > .menu-block > .menu > li.button > a img {
+  width: 24px !important;
+  height: 24px !important;
+  max-width: 24px !important;
+  max-height: 24px !important;
+  filter: none !important;
+  opacity: 0.96 !important;
+  transform: translateX(-8px) !important;
+  content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%23ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21a8 8 0 0 0-16 0"/><circle cx="12" cy="7" r="4"/></svg>') !important;
 }
