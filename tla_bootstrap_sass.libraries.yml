@@ -1,5 +1,5 @@
 global-styling:
-  version: VERSION
+  version: 5.0.18
   js: 
     js/bootstrap.bundle.min.js: {}
   css:

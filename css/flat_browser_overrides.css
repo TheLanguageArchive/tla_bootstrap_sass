@@ -213,6 +213,7 @@ header#header .container {
   display: flex !important; /* Changed from block to flex for better alignment */
   align-items: center !important;
   justify-content: center !important;
+  transform: translateY(1px) !important;
 }
 
 #block-tla-bootstrap-sass-account-menu h2,
@@ -287,13 +288,12 @@ header#header .container {
 
 /* Fix Icon visibility for the toggle ONLY */
 #block-tla-bootstrap-sass-account-menu > .menu-block > .menu > li.button > a img {
-  width: 24px !important;
-  height: 24px !important;
+  width: 26px !important;
+  height: 26px !important;
   object-fit: contain !important;
   filter: brightness(0) invert(1) !important;
   display: block !important;
   margin: 0 !important;
-  content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm89.6 32h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4z"/></svg>') !important;
 }
 
 /* Eliminate Ghost Lines */
@@ -411,6 +411,15 @@ header#header .container {
   line-height: normal !important;
 }
 
+#block-tla-bootstrap-sass-account-menu .dropdown-menu a.nav-link--user::before {
+  content: none !important;
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  margin: 0 !important;
+  background: none !important;
+}
+
 #block-tla-bootstrap-sass-account-menu .dropdown-menu li a:hover {
   background-color: #f3f4f6 !important;
   color: #111827 !important;
@@ -526,12 +535,76 @@ main > section.section {
   padding: 0 !important;
   color: #ffffff !important;
   text-decoration: none !important;
+  position: relative !important;
+  transition: background-color 0.2s ease, opacity 0.2s ease !important;
 }
 
-#block-tla-bootstrap-sass-account-menu .flat-zip-download-badge__icon {
-  font-size: 24px !important;
+#block-tla-bootstrap-sass-account-menu .flat-zip-download-badge::before,
+#block-tla-bootstrap-sass-account-menu .flat-browser-favourites-badge::before,
+#block-tla-bootstrap-sass-account-menu > .menu-block > .menu > li.button > a::before {
+  position: absolute !important;
+  z-index: 0 !important;
+  content: "" !important;
+  width: 48px !important;
+  height: 48px !important;
+  border-radius: 8px !important;
+  background-color: transparent !important;
+  opacity: 0 !important;
+  transition: background-color 0.2s ease, opacity 0.2s ease !important;
+  pointer-events: none !important;
 }
 
+#block-tla-bootstrap-sass-account-menu .flat-zip-download-badge::before,
+#block-tla-bootstrap-sass-account-menu .flat-browser-favourites-badge::before {
+  top: -4px !important;
+  left: -4px !important;
+}
+
+#block-tla-bootstrap-sass-account-menu > .menu-block > .menu > li.button > a::before {
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(calc(-50% - 8px), -50%) !important;
+}
+
+#block-tla-bootstrap-sass-account-menu .flat-zip-download-badge__icon,
+#block-tla-bootstrap-sass-account-menu .flat-browser-favourites-badge__icon,
+#block-tla-bootstrap-sass-account-menu > .menu-block > .menu > li.button > a img {
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+#block-tla-bootstrap-sass-account-menu .flat-zip-download-badge__count,
+#block-tla-bootstrap-sass-account-menu .flat-zip-download-badge__check,
+#block-tla-bootstrap-sass-account-menu .flat-browser-favourites-count {
+  position: absolute !important;
+  z-index: 2 !important;
+  top: -0.15rem !important;
+  right: -0.15rem !important;
+}
+
+#block-tla-bootstrap-sass-account-menu .flat-zip-download-badge:hover::before,
+#block-tla-bootstrap-sass-account-menu .flat-zip-download-badge:focus-visible::before,
+#block-tla-bootstrap-sass-account-menu .flat-browser-favourites-badge:hover::before,
+#block-tla-bootstrap-sass-account-menu .flat-browser-favourites-badge:focus-visible::before,
+#block-tla-bootstrap-sass-account-menu > .menu-block > .menu > li.button > a:hover::before,
+#block-tla-bootstrap-sass-account-menu > .menu-block > .menu > li.button > a:focus-visible::before {
+  background-color: rgba(255, 255, 255, 0.16) !important;
+  opacity: 1 !important;
+}
+
+#block-tla-bootstrap-sass-account-menu .flat-zip-download-badge:hover,
+#block-tla-bootstrap-sass-account-menu .flat-zip-download-badge:focus-visible,
+#block-tla-bootstrap-sass-account-menu .flat-browser-favourites-badge:hover,
+#block-tla-bootstrap-sass-account-menu .flat-browser-favourites-badge:focus-visible,
+#block-tla-bootstrap-sass-account-menu > .menu-block > .menu > li.button > a:hover,
+#block-tla-bootstrap-sass-account-menu > .menu-block > .menu > li.button > a:focus-visible {
+  background-color: transparent !important;
+  color: #ffffff !important;
+  text-decoration: none !important;
+  outline: none !important;
+}
+
+#block-tla-bootstrap-sass-account-menu .flat-zip-download-badge__icon,
 #block-tla-bootstrap-sass-account-menu .flat-browser-favourites-badge__icon {
   font-size: 26px !important;
 }
@@ -555,12 +628,11 @@ main > section.section {
 }
 
 #block-tla-bootstrap-sass-account-menu > .menu-block > .menu > li.button > a img {
-  width: 24px !important;
-  height: 24px !important;
-  max-width: 24px !important;
-  max-height: 24px !important;
+  width: 26px !important;
+  height: 26px !important;
+  max-width: 26px !important;
+  max-height: 26px !important;
   filter: none !important;
   opacity: 0.96 !important;
   transform: translateX(-8px) !important;
-  content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%23ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21a8 8 0 0 0-16 0"/><circle cx="12" cy="7" r="4"/></svg>') !important;
 }
