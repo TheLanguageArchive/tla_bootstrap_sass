@@ -141,6 +141,9 @@ form[id^="search-"] button,
   background-color: #d1dceb !important; /* Slightly more blue than before */
   border-color: #07426e !important;
   color: #07426e !important;
+  padding-top: 0.3rem;
+  padding-bottom: 0.3rem;
+  line-height: 1.4;
 }
 
 button[type="submit"]:hover,
@@ -181,6 +184,14 @@ form[id^="search-"] button svg {
 
 /* Fix Bootstrap Icons (checkmark, search, etc.) which are hardcoded to white in the theme */
 .form-submit::before {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  margin-right: 0.45em;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 1em 1em;
+  vertical-align: -0.12em;
   background-image: url('data:image/svg+xml,<svg class="bi bi-check" width="1em" height="1em" viewBox="0 0 16 16" fill="%2307426e" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M13.854 3.646a.5.5 0 010 .708l-7 7a.5.5 0 01-.708 0l-3.5-3.5a.5.5 0 11.708-.708L6.5 10.293l6.646-6.647a.5.5 0 01.708 0z" clip-rule="evenodd"/></svg>') !important;
 }
 
@@ -442,24 +453,32 @@ header#header .container {
 
 /* Alert/Message Colors Alignment */
 .alert-success {
+  --flat-alert-accent: #4caf50;
+  --flat-alert-text-color: #1b5e20;
   background-color: #e8f5e9 !important;
   border-left: 6px solid #4caf50 !important;
   color: #1b5e20 !important;
 }
 
 .alert-danger {
+  --flat-alert-accent: #f44336;
+  --flat-alert-text-color: #b71c1c;
   background-color: #ffebee !important;
   border-left: 6px solid #f44336 !important;
   color: #b71c1c !important;
 }
 
 .alert-warning {
+  --flat-alert-accent: #ff9800;
+  --flat-alert-text-color: #e65100;
   background-color: #fff3e0 !important;
   border-left: 6px solid #ff9800 !important;
   color: #e65100 !important;
 }
 
 .alert-info {
+  --flat-alert-accent: #2196f3;
+  --flat-alert-text-color: #0d47a1;
   background-color: #e3f2fd !important;
   border-left: 6px solid #2196f3 !important;
   color: #0d47a1 !important;
@@ -470,6 +489,23 @@ header#header .container {
   border-right: none !important;
   border-bottom: none !important;
   border-radius: 4px !important;
+}
+
+/* Keep selected native radio controls visible on the dark site theme. */
+body.dark-mode input[type="radio"],
+html[data-bs-theme="dark"] input[type="radio"] {
+  accent-color: #38bdf8 !important;
+}
+
+body.dark-mode .form-check-input[type="radio"]:checked,
+html[data-bs-theme="dark"] .form-check-input[type="radio"]:checked {
+  background-color: #38bdf8 !important;
+  border-color: #38bdf8 !important;
+}
+
+/* The status icon is the visual counterpart to the left-hand accent. */
+div.alert svg {
+  fill: var(--flat-alert-accent, currentColor);
 }
 
 /* Remove vertical margins from main content wrapper */
@@ -541,6 +577,7 @@ main > section.section {
 
 #block-tla-bootstrap-sass-account-menu .flat-zip-download-badge::before,
 #block-tla-bootstrap-sass-account-menu .flat-browser-favourites-badge::before,
+#block-tla-bootstrap-sass-account-menu .flat-browser-dashboard-badge::before,
 #block-tla-bootstrap-sass-account-menu > .menu-block > .menu > li.button > a::before {
   position: absolute !important;
   z-index: 0 !important;
@@ -555,7 +592,8 @@ main > section.section {
 }
 
 #block-tla-bootstrap-sass-account-menu .flat-zip-download-badge::before,
-#block-tla-bootstrap-sass-account-menu .flat-browser-favourites-badge::before {
+#block-tla-bootstrap-sass-account-menu .flat-browser-favourites-badge::before,
+#block-tla-bootstrap-sass-account-menu .flat-browser-dashboard-badge::before {
   top: -4px !important;
   left: -4px !important;
 }
@@ -568,6 +606,7 @@ main > section.section {
 
 #block-tla-bootstrap-sass-account-menu .flat-zip-download-badge__icon,
 #block-tla-bootstrap-sass-account-menu .flat-browser-favourites-badge__icon,
+#block-tla-bootstrap-sass-account-menu .flat-browser-dashboard-badge__icon,
 #block-tla-bootstrap-sass-account-menu > .menu-block > .menu > li.button > a img {
   position: relative !important;
   z-index: 1 !important;
@@ -586,6 +625,8 @@ main > section.section {
 #block-tla-bootstrap-sass-account-menu .flat-zip-download-badge:focus-visible::before,
 #block-tla-bootstrap-sass-account-menu .flat-browser-favourites-badge:hover::before,
 #block-tla-bootstrap-sass-account-menu .flat-browser-favourites-badge:focus-visible::before,
+#block-tla-bootstrap-sass-account-menu .flat-browser-dashboard-badge:hover::before,
+#block-tla-bootstrap-sass-account-menu .flat-browser-dashboard-badge:focus-visible::before,
 #block-tla-bootstrap-sass-account-menu > .menu-block > .menu > li.button > a:hover::before,
 #block-tla-bootstrap-sass-account-menu > .menu-block > .menu > li.button > a:focus-visible::before {
   background-color: rgba(255, 255, 255, 0.16) !important;
@@ -596,6 +637,8 @@ main > section.section {
 #block-tla-bootstrap-sass-account-menu .flat-zip-download-badge:focus-visible,
 #block-tla-bootstrap-sass-account-menu .flat-browser-favourites-badge:hover,
 #block-tla-bootstrap-sass-account-menu .flat-browser-favourites-badge:focus-visible,
+#block-tla-bootstrap-sass-account-menu .flat-browser-dashboard-badge:hover,
+#block-tla-bootstrap-sass-account-menu .flat-browser-dashboard-badge:focus-visible,
 #block-tla-bootstrap-sass-account-menu > .menu-block > .menu > li.button > a:hover,
 #block-tla-bootstrap-sass-account-menu > .menu-block > .menu > li.button > a:focus-visible {
   background-color: transparent !important;

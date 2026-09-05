@@ -1,0 +1,266 @@
+/* FLAT design system
+ *
+ * Shared visual tokens for flat_browser and the companion flat modules. Keep
+ * component CSS semantic: module styles should consume these variables rather
+ * than introducing a second palette or control language.
+ */
+:root,
+[data-bs-theme="light"] {
+  --flat-color-surface: #ffffff;
+  --flat-color-surface-subtle: #f9fafb;
+  --flat-color-surface-muted: #f3f4f6;
+  --flat-color-surface-raised: #ffffff;
+  --flat-color-border: #e5e7eb;
+  --flat-color-border-strong: #d1d5db;
+  --flat-color-text: #111827;
+  --flat-color-text-muted: #6b7280;
+  --flat-color-text-subtle: #4b5563;
+  --flat-color-accent: #084c7c;
+  --flat-color-accent-hover: #07426e;
+  --flat-color-accent-subtle: #e6ecf4;
+  --flat-color-focus: rgba(8, 76, 124, 0.25);
+  --flat-color-success: #2e7d32;
+  --flat-color-success-bg: #e8f5e9;
+  --flat-color-warning: #ad6800;
+  --flat-color-warning-bg: #fff8e1;
+  --flat-color-danger: #b91c1c;
+  --flat-color-danger-bg: #fef2f2;
+  --flat-color-info: #1565c0;
+  --flat-color-info-bg: #eef3fb;
+
+  --flat-font-size-xs: 0.75rem;
+  --flat-font-size-sm: 0.8125rem;
+  --flat-font-size-md: 0.9375rem;
+  --flat-font-size-lg: 1.125rem;
+  --flat-font-size-xl: 1.5rem;
+  --flat-line-height: 1.5;
+
+  --flat-space-1: 0.25rem;
+  --flat-space-2: 0.5rem;
+  --flat-space-3: 0.75rem;
+  --flat-space-4: 1rem;
+  --flat-space-5: 1.5rem;
+  --flat-space-6: 2rem;
+
+  --flat-radius-control: 8px;
+  --flat-radius-card: 8px;
+  --flat-radius-small: 4px;
+  --flat-radius-pill: 999px;
+  --flat-shadow-subtle: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --flat-shadow-panel: 0 4px 20px rgba(0, 0, 0, 0.06);
+  --flat-transition: background-color 0.2s ease, border-color 0.2s ease,
+    color 0.2s ease, box-shadow 0.2s ease;
+}
+
+body.dark-mode,
+[data-bs-theme="dark"] {
+  --flat-color-surface: #121212;
+  --flat-color-surface-subtle: #1e1e1e;
+  --flat-color-surface-muted: #262626;
+  --flat-color-surface-raised: #2d2d2d;
+  --flat-color-border: #2d2d2d;
+  --flat-color-border-strong: #404040;
+  --flat-color-text: #f5f5f5;
+  --flat-color-text-muted: #a3a3a3;
+  --flat-color-text-subtle: #d4d4d4;
+  --flat-color-accent: #38bdf8;
+  --flat-color-accent-hover: #7dd3fc;
+  --flat-color-accent-subtle: #171717;
+  --flat-color-focus: rgba(56, 189, 248, 0.3);
+  --flat-color-success: #81c784;
+  --flat-color-success-bg: #1b3320;
+  --flat-color-warning: #ffca66;
+  --flat-color-warning-bg: #3b2f13;
+  --flat-color-danger: #fca5a5;
+  --flat-color-danger-bg: #3a1717;
+  --flat-color-info: #90caf9;
+  --flat-color-info-bg: #172738;
+  --flat-shadow-subtle: 0 1px 2px rgba(0, 0, 0, 0.35);
+  --flat-shadow-panel: 0 4px 20px rgba(0, 0, 0, 0.35);
+}
+
+/* Shared controls. These are intentionally limited to FLAT-owned forms and
+ * controls so contributed/admin UI is not unexpectedly restyled. */
+.flat-browser-wrapper,
+.collection-browser-wrapper,
+.flat-permissions-edit-permissions-form,
+.flat-access-request-form,
+.flat-deposit-dashboard,
+.flat-text-viewer,
+.flat-zip-download-selection,
+.flat-gallery {
+  color: var(--flat-color-text);
+}
+
+.flat-browser-wrapper button,
+.collection-browser-wrapper button,
+.flat-browser-wrapper input,
+.collection-browser-wrapper input,
+.flat-browser-wrapper select,
+.collection-browser-wrapper select,
+.flat-browser-wrapper textarea,
+.collection-browser-wrapper textarea,
+.flat-permissions-edit-permissions-form button,
+.flat-permissions-edit-permissions-form input,
+.flat-permissions-edit-permissions-form select,
+.flat-permissions-edit-permissions-form textarea,
+.flat-access-request-form button,
+.flat-access-request-form input,
+.flat-access-request-form select,
+.flat-access-request-form textarea,
+.flat-deposit-dashboard button,
+.flat-deposit-dashboard input,
+.flat-deposit-dashboard select,
+.flat-deposit-dashboard textarea,
+.flat-text-viewer button,
+.flat-text-viewer select,
+.flat-zip-download-selection button,
+.flat-zip-download-selection input,
+.flat-zip-download-selection select {
+  border-radius: var(--flat-radius-control);
+  transition: var(--flat-transition);
+}
+
+.flat-browser-wrapper input:not([type="checkbox"]):not([type="radio"]),
+.collection-browser-wrapper input:not([type="checkbox"]):not([type="radio"]),
+.collection-browser-wrapper select,
+.collection-browser-wrapper textarea,
+.flat-permissions-edit-permissions-form input:not([type="checkbox"]):not([type="radio"]),
+.flat-permissions-edit-permissions-form select,
+.flat-permissions-edit-permissions-form textarea,
+.flat-access-request-form input:not([type="checkbox"]):not([type="radio"]),
+.flat-access-request-form select,
+.flat-access-request-form textarea,
+.flat-deposit-dashboard input:not([type="checkbox"]):not([type="radio"]),
+.flat-deposit-dashboard select,
+.flat-deposit-dashboard textarea,
+.flat-text-viewer select,
+.flat-zip-download-selection input:not([type="checkbox"]):not([type="radio"]),
+.flat-zip-download-selection select {
+  border: 1px solid var(--flat-color-border-strong);
+  background-color: var(--flat-color-surface-raised);
+  color: var(--flat-color-text);
+}
+
+.flat-browser-wrapper button,
+.collection-browser-wrapper button,
+.flat-permissions-edit-permissions-form button,
+.flat-access-request-form button,
+.flat-deposit-dashboard button,
+.flat-text-viewer button,
+.flat-zip-download-selection button {
+  font-size: var(--flat-font-size-sm);
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.flat-browser-wrapper button:focus-visible,
+.collection-browser-wrapper button:focus-visible,
+.flat-browser-wrapper input:focus,
+.collection-browser-wrapper input:focus,
+.flat-browser-wrapper select:focus,
+.collection-browser-wrapper select:focus,
+.flat-browser-wrapper textarea:focus,
+.collection-browser-wrapper textarea:focus,
+.flat-permissions-edit-permissions-form button:focus-visible,
+.flat-permissions-edit-permissions-form input:focus,
+.flat-permissions-edit-permissions-form select:focus,
+.flat-permissions-edit-permissions-form textarea:focus,
+.flat-access-request-form button:focus-visible,
+.flat-access-request-form input:focus,
+.flat-access-request-form select:focus,
+.flat-access-request-form textarea:focus,
+.flat-deposit-dashboard button:focus-visible,
+.flat-deposit-dashboard input:focus,
+.flat-deposit-dashboard select:focus,
+.flat-deposit-dashboard textarea:focus,
+.flat-text-viewer button:focus-visible,
+.flat-text-viewer select:focus,
+.flat-zip-download-selection button:focus-visible,
+.flat-zip-download-selection input:focus,
+.flat-zip-download-selection select:focus {
+  outline: 0;
+  border-color: var(--flat-color-accent);
+  box-shadow: 0 0 0 3px var(--flat-color-focus);
+}
+
+/* Shared tab treatment. Modules can add layout-specific selectors around this
+ * pattern, but active/inactive states should remain identical. */
+.flat-tabs,
+.flat-browser-tabs,
+.flat-deposit-dashboard-tabs {
+  display: flex;
+  gap: var(--flat-space-4);
+  border-bottom: 1px solid var(--flat-color-border);
+}
+
+.flat-tabs > a,
+.flat-browser-tabs > a,
+.flat-deposit-dashboard-tab {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  padding: var(--flat-space-2) 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--flat-color-text-muted);
+  font-size: var(--flat-font-size-sm);
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.flat-tabs > a:hover,
+.flat-tabs > a:focus-visible,
+.flat-browser-tabs > a:hover,
+.flat-browser-tabs > a:focus-visible,
+.flat-deposit-dashboard-tab:hover,
+.flat-deposit-dashboard-tab:focus-visible,
+.flat-tabs > a.is-active,
+.flat-browser-tabs > a.is-active,
+.flat-deposit-dashboard-tab.active {
+  color: var(--flat-color-accent);
+}
+
+.flat-tabs > a.is-active::after,
+.flat-browser-tabs > a.is-active::after,
+.flat-deposit-dashboard-tab.active::after {
+  position: absolute;
+  right: 0;
+  bottom: -1px;
+  left: 0;
+  height: 2px;
+  background: var(--flat-color-accent);
+  content: "";
+}
+
+/* Shared panel/card surface. */
+.flat-panel,
+.flat-card {
+  border: 1px solid var(--flat-color-border);
+  border-radius: var(--flat-radius-card);
+  background: var(--flat-color-surface-raised);
+  box-shadow: var(--flat-shadow-subtle);
+}
+
+/* CMDI collection/bundle forms are rendered inside this shared wrapper. Their
+ * controls should follow the same rounded FLAT treatment as the other module
+ * forms, including when Bootstrap's form selectors are more specific. */
+#flat_cmdi_form_wrapper input:not([type="checkbox"]):not([type="radio"]),
+#flat_cmdi_form_wrapper select,
+#flat_cmdi_form_wrapper textarea {
+  border: 1px solid var(--flat-color-border-strong) !important;
+  border-radius: var(--flat-radius-control) !important;
+  background-color: var(--flat-color-surface-raised) !important;
+  color: var(--flat-color-text) !important;
+  transition: var(--flat-transition);
+}
+
+#flat_cmdi_form_wrapper input:not([type="checkbox"]):not([type="radio"]):focus,
+#flat_cmdi_form_wrapper select:focus,
+#flat_cmdi_form_wrapper textarea:focus {
+  border-color: var(--flat-color-accent) !important;
+  box-shadow: 0 0 0 3px var(--flat-color-focus) !important;
+  outline: 0;
+}
