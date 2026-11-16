@@ -10,6 +10,7 @@ use Drupal\file\FileInterface;
 use Drupal\image\Entity\ImageStyle;
 use Drupal\user\Entity\User;
 use Drupal\Core\Cache\CacheableMetadata;
+use Drupal\Core\Url;
 
 /**
  * Implements hook_form_system_theme_settings_alter() for settings form.
@@ -47,6 +48,16 @@ function tla_bootstrap_sass_form_system_theme_settings_alter(array &$form, FormS
  */
 function tla_bootstrap_sass_preprocess_block(array &$variables): void
 {
+  // Upgrade only the bundled TLA logo, keeping custom uploaded logos intact.
+  if (($variables['plugin_id'] ?? '') === 'system_branding_block' && !empty($variables['site_logo'])) {
+    $image_path = base_path() . \Drupal::service('extension.list.theme')->getPath('tla_bootstrap_sass') . '/images/';
+    $configured_path = parse_url((string) $variables['site_logo'], PHP_URL_PATH);
+    if (in_array($configured_path, [$image_path . 'tla_logo_inverted.png', $image_path . 'tla_logo_inverted.webp'], TRUE)) {
+      $variables['site_logo'] = $image_path . 'tla_logo_inverted.webp';
+      $variables['tla_logo_optimized'] = TRUE;
+    }
+  }
+
   if ($variables['plugin_id'] === 'system_menu_block:account') {
     $user = User::load(\Drupal::currentUser()->id());
     if ($user && user_picture_enabled() && !$user->user_picture->isEmpty() && $user->user_picture->entity instanceof FileInterface) {
@@ -84,4 +95,112 @@ function tla_bootstrap_sass_form_alter(array &$form, \Drupal\Core\Form\FormState
       $form['search-textfield']['#attributes']['aria-label'] = 'Enter search term';
     }
   }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter() for the user login form.
+ *
+ * Supply the local panel even when flat_shib_auth is absent or unconfigured.
+ * Module form alters run before theme alters, so retain an existing panel.
+ */
+function tla_bootstrap_sass_form_user_login_form_alter(array &$form, FormStateInterface $form_state): void
+{
+    if (isset($form['flat_shib_auth_local_login'])) {
+        return;
+    }
+
+    // Keep the local credentials, submit button, and account-help links
+    // together so the theme can render them as one panel.
+    $local_login = [
+        '#type' => 'container',
+        '#attributes' => ['class' => ['flat-login-panel', 'flat-login-panel--local']],
+        '#weight' => -100,
+    ];
+
+    $theme_path = \Drupal::service('extension.list.theme')->getPath('tla_bootstrap_sass');
+    $local_login['branding'] = [
+        '#type' => 'container',
+        '#attributes' => ['class' => ['flat-login-panel__branding']],
+        '#weight' => -200,
+        'mpi_logo' => [
+            '#theme' => 'image',
+            '#uri' => Url::fromUri('base:' . $theme_path . '/images/mpi-logo.png')->toString(),
+            '#alt' => t('Max Planck Institute for Psycholinguistics'),
+            '#attributes' => ['class' => ['flat-login-panel__logo', 'flat-login-panel__logo--mpi']],
+        ],
+        'tla_logo' => [
+            '#theme' => 'image',
+            '#uri' => Url::fromUri('base:' . $theme_path . '/images/tla-logo-with-text.png')->toString(),
+            '#alt' => t('The Language Archive'),
+            '#attributes' => ['class' => ['flat-login-panel__logo', 'flat-login-panel__logo--site']],
+        ],
+    ];
+    $local_login['introduction'] = [
+        '#markup' => '<p class="flat-login-panel__introduction">' . t('Log in with your MPI for Psycholinguistics or The Language Archive account') . '</p>',
+        '#weight' => -199,
+    ];
+
+    foreach (['name', 'pass', 'actions'] as $element) {
+        if (isset($form[$element])) {
+            $local_login[$element] = $form[$element];
+            unset($form[$element]);
+        }
+    }
+
+    // These inputs are read by core's login validation using their root form
+    // keys. Wrapping them for presentation must not change their submitted
+    // names or value paths.
+    foreach (['name', 'pass'] as $element) {
+        if (isset($local_login[$element])) {
+            $local_login[$element]['#parents'] = [$element];
+        }
+    }
+
+    // The default password field description is replaced with the clearly
+    // labelled account links below the submit button.
+    if (isset($local_login['pass']['#description'])) {
+        unset($local_login['pass']['#description']);
+    }
+
+    $local_login['account_links'] = [
+        '#type' => 'container',
+        '#attributes' => ['class' => ['flat-login-panel__account-links']],
+        '#weight' => 200,
+        'register' => [
+            '#type' => 'link',
+            '#title' => t('Create new account'),
+            '#url' => Url::fromRoute('user.register'),
+        ],
+        'password' => [
+            '#type' => 'link',
+            '#title' => t('Reset your password'),
+            '#url' => Url::fromRoute('user.pass'),
+        ],
+    ];
+
+    $form['flat_shib_auth_local_login'] = $local_login;
+
+}
+
+/**
+ * Implements hook_preprocess_page_title().
+ */
+function tla_bootstrap_sass_preprocess_page_title(array &$variables): void
+{
+    if (!in_array(\Drupal::routeMatch()->getRouteName(), ['user.register', 'user.pass'], TRUE)) {
+        return;
+    }
+
+    // Reuse the module's key to avoid rendering the same link twice.
+    if (!isset($variables['title_prefix']['flat_shib_auth_back_to_login'])) {
+        $variables['title_prefix']['flat_shib_auth_back_to_login'] = [
+            '#type' => 'container',
+            '#attributes' => ['class' => ['flat-account-page__back-link']],
+            'back' => [
+                '#type' => 'link',
+                '#title' => t('< back to login page'),
+                '#url' => \Drupal\Core\Url::fromRoute('user.login'),
+            ],
+        ];
+    }
 }

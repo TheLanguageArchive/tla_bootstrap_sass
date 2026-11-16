@@ -7,11 +7,12 @@
 :root,
 [data-bs-theme="light"] {
   --flat-color-surface: #ffffff;
-  --flat-color-surface-subtle: #f9fafb;
-  --flat-color-surface-muted: #f3f4f6;
+  --flat-color-surface-subtle: #fafbfd;
+  --flat-color-surface-muted: #f5f7fa;
+  --flat-color-table-header: #f0f4f7;
   --flat-color-surface-raised: #ffffff;
-  --flat-color-border: #e5e7eb;
-  --flat-color-border-strong: #d1d5db;
+  --flat-color-border: #e6ebf0;
+  --flat-color-border-strong: #d2dbe4;
   --flat-color-text: #111827;
   --flat-color-text-muted: #6b7280;
   --flat-color-text-subtle: #4b5563;
@@ -21,6 +22,9 @@
   --flat-color-focus: rgba(8, 76, 124, 0.25);
   --flat-color-success: #2e7d32;
   --flat-color-success-bg: #e8f5e9;
+  --flat-color-selection-active: #328738;
+  --flat-color-favourite-active: #7858a5;
+  --flat-color-favourite-active-text: #ffffff;
   --flat-color-warning: #ad6800;
   --flat-color-warning-bg: #fff8e1;
   --flat-color-danger: #b91c1c;
@@ -54,21 +58,29 @@
 
 body.dark-mode,
 [data-bs-theme="dark"] {
-  --flat-color-surface: #121212;
-  --flat-color-surface-subtle: #1e1e1e;
-  --flat-color-surface-muted: #262626;
-  --flat-color-surface-raised: #2d2d2d;
-  --flat-color-border: #2d2d2d;
-  --flat-color-border-strong: #404040;
-  --flat-color-text: #f5f5f5;
-  --flat-color-text-muted: #a3a3a3;
-  --flat-color-text-subtle: #d4d4d4;
+  --flat-color-surface: #171c22;
+  --flat-color-surface-subtle: #1b2128;
+  --flat-color-surface-muted: #202730;
+  --flat-color-table-header: #252f39;
+  --flat-color-surface-raised: #202933;
+  --flat-color-border: #2e3945;
+  --flat-color-border-strong: #3b4957;
+  --flat-color-control: #232d37;
+  --flat-color-control-hover: #2d3945;
+  --flat-color-control-border: #42515f;
+  --flat-color-control-border-hover: #506171;
+  --flat-color-text: #f5f7fa;
+  --flat-color-text-muted: #adb9c4;
+  --flat-color-text-subtle: #d5dfe9;
   --flat-color-accent: #38bdf8;
   --flat-color-accent-hover: #7dd3fc;
-  --flat-color-accent-subtle: #171717;
+  --flat-color-accent-subtle: #1d3448;
   --flat-color-focus: rgba(56, 189, 248, 0.3);
   --flat-color-success: #81c784;
   --flat-color-success-bg: #1b3320;
+  --flat-color-selection-active: #91d493;
+  --flat-color-favourite-active: #c3a9eb;
+  --flat-color-favourite-active-text: #261d35;
   --flat-color-warning: #ffca66;
   --flat-color-warning-bg: #3b2f13;
   --flat-color-danger: #fca5a5;

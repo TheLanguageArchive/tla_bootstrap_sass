@@ -1,7 +1,7 @@
 global-styling:
-  version: 5.0.27
+  version: 5.0.39
   js: 
-    js/bootstrap.bundle.min.js: {}
+    js/bootstrap.tla.min.js: {}
   css:
     component:
       css/style.css: {}

@@ -10109,6 +10109,12 @@ nav.tabs ul .nav-item.active a {
 }
 
 /* Login pages */
+.page-user-login #main-wrapper,
+.page-user-register #main-wrapper,
+.page-user-password #main-wrapper {
+  padding-top: 2rem;
+}
+
 .page-user-register main#content,
 .page-user-password main#content {
   flex: 0 0 auto;
@@ -10249,6 +10255,16 @@ nav.tabs ul .nav-item.active a {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1.5rem;
+}
+
+/* A local-only login uses one centered panel at the two-panel card width. */
+.page-user-login form#user-login-form:not(:has(.flat-login-panel--shibboleth)) {
+  max-width: 390px;
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.page-user-login:not(:has(.flat-login-panel--shibboleth)) #block-tla-bootstrap-sass-pagetitle .content {
+  max-width: 390px;
 }
 
 /* Account-related links are provided within the local-login panel. */
