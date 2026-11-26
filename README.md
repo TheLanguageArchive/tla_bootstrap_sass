@@ -44,3 +44,29 @@ then clear Drupal caches. No database update is needed.
 Account pages have an additional 2rem of space below the header. A login form
 without an institutional panel is centered at a maximum width of 390px; the
 two-panel layout remains available when Shibboleth supplies its panel.
+
+## Front page collection cards
+
+`templates/layout/page--front.html.twig` renders the six collection cards from
+a small list at the top of the block, one `<article>` each: image, heading link
+and description. The title link is stretched over the whole card in CSS, so
+each card has a single link and the images are decorative (`alt=""`).
+
+The styling is in `css/front_page.css`, attached to the front page only through
+the `front-page` library. It sits in the `theme` CSS group so it loads after
+`style.css` and overrides the older fixed-width `.category` rules there, which
+can stay as they are. The cards use the shared `--flat-*` tokens, so they follow
+the collection browser's sun/moon toggle (`body.dark-mode`), which also darkens
+the page background; header and footer keep their colours. In dark mode they
+use the raised surface so they stand out from the page. They use a subgrid, so
+titles and descriptions line up across a row. The grid is three columns on
+the 1084px page, two on tablets and one on phones.
+
+Hovering a card and reaching it with the keyboard (`:focus-visible` on the title
+link) give the same look: accent border, deeper shadow, lift, image zoom and an
+arrow nudge. The card state replaces the browser's focus ring. The lift, zoom,
+arrow nudge and the scroll-in fade only run when the visitor has not asked for
+reduced motion; the border and shadow change still shows then.
+
+Deploy the template, `css/front_page.css` and the libraries file together, then
+clear Drupal caches. No database update is needed.

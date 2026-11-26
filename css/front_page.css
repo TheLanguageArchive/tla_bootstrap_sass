@@ -1,0 +1,166 @@
+/* Front page: collection cards (templates/layout/page--front.html.twig).
+ *
+ * Loaded after style.css through the `front-page` library. The legacy fixed
+ * width .category / .category__item rules in style.css are overridden here, so
+ * they can stay in the compiled stylesheet untouched.
+ *
+ * Colours, radii and borders come from the shared --flat-* tokens in
+ * flat_design_tokens.css. The collection browser's sun/moon toggle puts
+ * body.dark-mode on the page, which darkens the page background and switches
+ * those tokens, so the cards follow it without any rules of their own. Only the
+ * hover shadow needs a dark variant, below.
+ */
+
+.front-container section.category {
+  --category-gap: clamp(1rem, 2.5vw, 1.75rem);
+  --category-radius: 0.875rem;
+  --category-accent: var(--flat-color-accent, #234c7d);
+  --category-shadow-hover: 0 14px 32px -14px rgb(15 23 42 / 0.35);
+
+  display: grid;
+  /* Three columns on the 1084px page, two on tablets, one on phones. */
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
+  /* No row gap here: cards share three row tracks (media, title, text) through
+     subgrid, so the space between card rows is each card's bottom margin. */
+  column-gap: var(--category-gap);
+  row-gap: 0;
+  height: auto;
+}
+
+/* A black-based shadow is needed to show up on the dark page. */
+body.dark-mode .front-container section.category,
+[data-bs-theme="dark"] .front-container section.category {
+  --category-shadow-hover: 0 14px 32px -14px rgb(0 0 0 / 0.65);
+}
+
+.front-container .category .category__item {
+  position: relative; /* anchors the stretched link below */
+  grid-row: span 3;
+  display: grid;
+  /* Fallback for browsers without subgrid; overridden on the next line. */
+  grid-template-rows: auto auto 1fr;
+  grid-template-rows: subgrid;
+  row-gap: 0;
+  inline-size: auto;
+  margin: 0 0 var(--category-gap);
+  overflow: clip; /* keeps the image zoom inside the rounded corners */
+  /* The raised surface is a step lighter than the page in dark mode, so the
+     cards do not merge into the background; in light mode it is white. */
+  background: var(--flat-color-surface-raised, #fff);
+  border: 1px solid var(--flat-color-border, #e6ebf0);
+  border-radius: var(--category-radius);
+  box-shadow: var(--flat-shadow-subtle, 0 1px 2px rgb(0 0 0 / 0.05));
+  transition:
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.front-container .category .category__item img {
+  display: block;
+  inline-size: 100%;
+  block-size: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.front-container .category .category__item h2 {
+  margin: 0;
+  padding: 1.125rem 1.25rem 0.375rem;
+  font-size: 1.2rem;
+  font-weight: 650;
+  line-height: 1.3;
+  text-wrap: balance;
+}
+
+.front-container .category .category__item h2::after {
+  content: "\2192"; /* right arrow; the second line hides it from screen readers */
+  content: "\2192" / "";
+  display: inline-block;
+  margin-inline-start: 0.35em;
+  color: var(--category-accent);
+  transition: transform 0.25s ease;
+}
+
+.front-container .category .category__item p {
+  margin: 0;
+  padding: 0 1.25rem 1.375rem;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--flat-color-text-subtle, #4b5563);
+}
+
+/* The title is the card's one link; its pseudo-element stretches over the whole
+   card so the image and text are clickable too, without nesting links. */
+.front-container .category .category__link {
+  color: var(--category-accent);
+  text-decoration: none;
+}
+
+.front-container .category .category__link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+/* Hover and keyboard focus share one look. :focus-visible matches only when the
+   link is reached with the keyboard, so clicking a card never leaves it
+   highlighted. :is() ignores the :has() branch in a browser that lacks it, so
+   hover still works there, and that browser keeps its default focus ring. */
+.front-container .category .category__item:is(:hover, :has(.category__link:focus-visible)) {
+  border-color: var(--category-accent);
+  box-shadow: var(--category-shadow-hover);
+}
+
+/* The card state above is the focus indicator, so the link's own ring goes. */
+@supports selector(:has(*)) {
+  .front-container .category .category__link:focus-visible {
+    outline: none;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .front-container .category .category__item {
+    transition:
+      transform 0.25s ease,
+      box-shadow 0.25s ease,
+      border-color 0.25s ease;
+  }
+
+  .front-container .category .category__item img {
+    transition: scale 0.5s ease;
+  }
+
+  .front-container .category .category__item:is(:hover, :has(.category__link:focus-visible)) {
+    transform: translateY(-4px);
+  }
+
+  .front-container .category .category__item:is(:hover, :has(.category__link:focus-visible)) img {
+    scale: 1.05;
+  }
+
+  .front-container .category .category__item:is(:hover, :has(.category__link:focus-visible)) h2::after {
+    transform: translateX(0.25em);
+  }
+
+  /* Cards fade and rise into place as they scroll into view. Browsers without
+     scroll-driven animations simply show the cards. The animation fills
+     forwards, so cards already on screen at load are shown at full opacity. */
+  @supports (animation-timeline: view()) {
+    .front-container .category .category__item {
+      animation: category-reveal linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 40%;
+    }
+  }
+}
+
+@keyframes category-reveal {
+  from {
+    opacity: 0;
+    translate: 0 1.5rem;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}

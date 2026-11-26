@@ -10,3 +10,12 @@ global-styling:
   dependencies:
     - core/jquery
     - core/drupal
+
+# Front page collection cards; attached from templates/layout/page--front.html.twig.
+# The `theme` group sorts after `component`, so it overrides the legacy
+# .category rules in style.css.
+front-page:
+  version: 1.0.0
+  css:
+    theme:
+      css/front_page.css: {}
