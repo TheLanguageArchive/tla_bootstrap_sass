@@ -63,7 +63,7 @@ body.dark-mode .front-container section.category,
   object-fit: cover;
 }
 
-.front-container .category .category__item h2 {
+.front-container .category .category__item :is(h2, h3) {
   margin: 0;
   padding: 1.125rem 1.25rem 0.375rem;
   font-size: 1.2rem;
@@ -72,7 +72,7 @@ body.dark-mode .front-container section.category,
   text-wrap: balance;
 }
 
-.front-container .category .category__item h2::after {
+.front-container .category .category__item :is(h2, h3)::after {
   content: "\2192"; /* right arrow; the second line hides it from screen readers */
   content: "\2192" / "";
   display: inline-block;
@@ -138,7 +138,7 @@ body.dark-mode .front-container section.category,
     scale: 1.05;
   }
 
-  .front-container .category .category__item:is(:hover, :has(.category__link:focus-visible)) h2::after {
+  .front-container .category .category__item:is(:hover, :has(.category__link:focus-visible)) :is(h2, h3)::after {
     transform: translateX(0.25em);
   }
 
