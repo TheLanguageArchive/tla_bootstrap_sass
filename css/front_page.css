@@ -20,8 +20,11 @@
   display: grid;
   /* Three columns on the 1084px page, two on tablets, one on phones. */
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
-  /* No row gap here: cards share three row tracks (media, title, text) through
-     subgrid, so the space between card rows is each card's bottom margin. */
+  /* Every row is as tall as the tallest card, so all cards in a block are the
+     same height. A card is only as tall as its own content needs, so a card
+     without a description has no room reserved for one. */
+  grid-auto-rows: 1fr;
+  /* No row gap here: the space between card rows is each card's bottom margin. */
   column-gap: var(--category-gap);
   row-gap: 0;
   height: auto;
@@ -35,12 +38,8 @@ body.dark-mode .front-container section.category,
 
 .front-container .category .category__item {
   position: relative; /* anchors the stretched link below */
-  grid-row: span 3;
-  display: grid;
-  /* Fallback for browsers without subgrid; overridden on the next line. */
-  grid-template-rows: auto auto 1fr;
-  grid-template-rows: subgrid;
-  row-gap: 0;
+  display: flex;
+  flex-direction: column;
   inline-size: auto;
   margin: 0 0 var(--category-gap);
   overflow: clip; /* keeps the image zoom inside the rounded corners */
@@ -57,9 +56,13 @@ body.dark-mode .front-container section.category,
 
 .front-container .category .category__item img {
   display: block;
+  flex: none;
   inline-size: 100%;
   block-size: auto;
   aspect-ratio: 16 / 9;
+  /* One column that is wider than a card on the desktop grid would otherwise
+     give a very tall picture. */
+  max-block-size: 12rem;
   object-fit: cover;
 }
 
@@ -70,6 +73,11 @@ body.dark-mode .front-container section.category,
   font-weight: 650;
   line-height: 1.3;
   text-wrap: balance;
+}
+
+/* A card that is only a picture and a title ends with the title. */
+.front-container .category .category__item :is(h2, h3):last-child {
+  padding-block-end: 1.25rem;
 }
 
 .front-container .category .category__item :is(h2, h3)::after {

@@ -58,9 +58,11 @@ the `front-page` library. It sits in the `theme` CSS group so it loads after
 can stay as they are. The cards use the shared `--flat-*` tokens, so they follow
 the collection browser's sun/moon toggle (`body.dark-mode`), which also darkens
 the page background; header and footer keep their colours. In dark mode they
-use the raised surface so they stand out from the page. They use a subgrid, so
-titles and descriptions line up across a row. The grid is three columns on
-the 1084px page, two on tablets and one on phones.
+use the raised surface so they stand out from the page. Every row of the grid is
+as tall as its tallest card, so all cards in a block are the same height, and a
+card is only as tall as its own content: a card without a description has no
+room reserved for one. Pictures are 16:9 and at most 12rem high. The grid is
+three columns on the 1084px page, two on tablets and one on phones.
 
 Hovering a card and reaching it with the keyboard (`:focus-visible` on the title
 link) give the same look: accent border, deeper shadow, lift, image zoom and an
