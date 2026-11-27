@@ -19,3 +19,12 @@ front-page:
   css:
     theme:
       css/front_page.css: {}
+
+# Footer of the archive sites; attached from
+# templates/layout/archive-footer.html.twig. Used by this theme and the themes
+# built on it. The `theme` group overrides the fixed footer height in style.css.
+archive-footer:
+  version: 1.0.0
+  css:
+    theme:
+      css/archive_footer.css: {}

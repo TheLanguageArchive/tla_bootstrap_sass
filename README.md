@@ -70,5 +70,30 @@ arrow nudge. The card state replaces the browser's focus ring. The lift, zoom,
 arrow nudge and the scroll-in fade only run when the visitor has not asked for
 reduced motion; the border and shadow change still shows then.
 
+## Archive footer
+
+`templates/layout/archive-footer.html.twig` is the footer bar of the archive
+sites: the address and the legal links on the left, the UNESCO Memory of the
+World logo where a site has it, and the logos of CoreTrustSeal, CLARIN and the
+World Data System stacked on the right. Both page templates include it inside
+`<footer class="site-footer">`, and the themes built on this one inherit it. It
+is dark in both colour modes, like the header. `css/archive_footer.css` (the
+`archive-footer` library, attached by the partial) also replaces the fixed 500px
+height that `style.css` gives the footer.
+
+What goes in it comes from `tla_bootstrap_sass_archive_footer()`, called from
+`tla_bootstrap_sass_preprocess_page()`. The defaults are The Language Archive's:
+a heading line, Mission, People, Privacy Policy and Terms of Use, and the UNESCO
+logo. A theme built on this one calls the function again from its own
+`hook_preprocess_page()` with what differs; `mpi_bootstrap_sass` drops the
+heading line, the first two links and the UNESCO logo. The logos are in
+`images/footer`.
+
+The links are paths below the site's own base path (`/mpi/privacy-policy` on the
+site at `/mpi`). The pages are content: create nodes with the aliases
+`mission`, `people`, `privacy-policy` and `terms-of-use`, or the links lead to a
+"page not found". The footer regions (`footer_first` to `footer_fifth`) are
+still printed below the bar, for blocks placed there.
+
 Deploy the template, `css/front_page.css` and the libraries file together, then
 clear Drupal caches. No database update is needed.

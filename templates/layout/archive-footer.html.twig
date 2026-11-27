@@ -1,0 +1,61 @@
+{#
+/**
+ * @file
+ * Footer of the archive sites: who runs the archive, the legal pages, and the
+ * logos of the bodies that vouch for it.
+ *
+ * It is shared by tla_bootstrap_sass and the themes built on it, and included
+ * from their page templates inside <footer class="site-footer">. Each theme says
+ * what goes in it through archive_footer (see tla_bootstrap_sass_archive_footer()).
+ *
+ * Available variables:
+ * - archive_footer.name: First line above the address, or empty.
+ * - archive_footer.address: The address lines.
+ * - archive_footer.links: Links under the address, each with title and url.
+ * - archive_footer.memory_of_the_world: Whether the UNESCO logo is shown.
+ * - archive_footer.images: Path of the folder with the logos.
+ */
+#}
+{% if archive_footer %}
+  {{ attach_library('tla_bootstrap_sass/archive-footer') }}
+  <div class="archive-footer">
+    <div class="archive-footer__contact">
+      <address class="archive-footer__address">
+        {% if archive_footer.name %}<strong class="archive-footer__name">{{ archive_footer.name }}</strong><br>{% endif %}
+        {% for line in archive_footer.address %}{{ line }}{% if not loop.last %}<br>{% endif %}{% endfor %}
+      </address>
+      {% if archive_footer.links %}
+        <nav class="archive-footer__nav" aria-label="{{ 'Footer'|t }}">
+          <ul class="archive-footer__links">
+            {% for link in archive_footer.links %}
+              <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+            {% endfor %}
+          </ul>
+        </nav>
+      {% endif %}
+    </div>
+    {% if archive_footer.memory_of_the_world %}
+      <div class="archive-footer__unesco">
+        <img src="{{ archive_footer.images }}/unesco-memory-of-the-world.png" width="400" height="508" loading="lazy" decoding="async"
+             alt="{{ 'UNESCO Memory of the World. Selected data collections of the world’s language diversity at the Language Archive, inscribed on the Register in 2015.'|t }}">
+      </div>
+    {% endif %}
+    <ul class="archive-footer__seals">
+      <li class="archive-footer__seal archive-footer__seal--cts">
+        <a href="https://www.coretrustseal.org/wp-content/uploads/2022/03/20220322-the-language-archive_final.pdf" target="_blank" rel="noopener">
+          <img src="{{ archive_footer.images }}/coretrustseal.png" width="432" height="408" loading="lazy" decoding="async" alt="{{ 'CoreTrustSeal, certificate of The Language Archive'|t }}">
+        </a>
+      </li>
+      <li class="archive-footer__seal archive-footer__seal--clarin">
+        <a href="http://hdl.handle.net/11372/DOC-91" target="_blank" rel="noopener">
+          <img src="{{ archive_footer.images }}/clarin-b-centre.png" width="1019" height="354" loading="lazy" decoding="async" alt="{{ 'CLARIN B centre'|t }}">
+        </a>
+      </li>
+      <li class="archive-footer__seal archive-footer__seal--wds">
+        <a href="http://icsu-wds.org/" target="_blank" rel="noopener">
+          <img src="{{ archive_footer.images }}/wds.png" width="600" height="344" loading="lazy" decoding="async" alt="{{ 'ICSU World Data System'|t }}">
+        </a>
+      </li>
+    </ul>
+  </div>
+{% endif %}

@@ -1,0 +1,112 @@
+/* Footer of the archive sites (templates/layout/archive-footer.html.twig).
+ *
+ * The footer is the dark bar the archive sites have always had: the address and
+ * the legal links on the left, the UNESCO logo where a site has it, and the
+ * logos of the bodies that vouch for the archive stacked on the right. It stays
+ * dark in both colour modes, like the header.
+ *
+ * style.css gives the footer a fixed height of 500px, left from when the region
+ * was empty; it grows with its content here.
+ */
+
+.site-footer {
+  height: auto;
+  padding: 2.25rem 0 2.5rem;
+}
+
+.archive-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 2rem 3rem;
+  max-inline-size: 1084px; /* the width of the page above */
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+  color: #fff;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.archive-footer__contact {
+  flex: 1 1 14rem;
+}
+
+.archive-footer__address {
+  margin: 0;
+  font-style: normal;
+}
+
+.archive-footer__name {
+  font-weight: 700;
+}
+
+.archive-footer__links {
+  margin: 1.25rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.archive-footer a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.archive-footer a:is(:hover, :focus-visible) {
+  text-decoration: underline;
+}
+
+.archive-footer a:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.archive-footer__unesco {
+  flex: 0 0 auto;
+}
+
+.archive-footer__unesco img {
+  display: block;
+  inline-size: 9.5rem;
+  block-size: auto;
+}
+
+.archive-footer__seals {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.archive-footer__seal img {
+  display: block;
+  block-size: auto;
+}
+
+.archive-footer__seal--cts img {
+  inline-size: 5rem;
+}
+
+.archive-footer__seal--clarin img {
+  inline-size: 10rem;
+}
+
+.archive-footer__seal--wds img {
+  inline-size: 9rem;
+}
+
+/* Narrow screens: one column, everything starts at the left edge. */
+@media (max-width: 40rem) {
+  .archive-footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .archive-footer__seals {
+    align-items: flex-start;
+  }
+}

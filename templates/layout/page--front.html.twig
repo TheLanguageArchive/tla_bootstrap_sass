@@ -228,6 +228,7 @@
               {% endif %}
               <footer class="site-footer">
                 {% block footer %}
+                  {% include '@tla_bootstrap_sass/layout/archive-footer.html.twig' %}
                 <div class="{{ container }}">
                   {% if page.footer_first or page.footer_second or page.footer_third or page.footer_fourth %}
                   <div class="site-footer__top clearfix">

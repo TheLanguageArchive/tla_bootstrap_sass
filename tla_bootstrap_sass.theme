@@ -204,3 +204,72 @@ function tla_bootstrap_sass_preprocess_page_title(array &$variables): void
         ];
     }
 }
+
+/**
+ * Implements hook_preprocess_page().
+ *
+ * Hands the page templates the content of the archive footer.
+ *
+ * @param array<string, mixed> $variables
+ *   Theme variables.
+ */
+function tla_bootstrap_sass_preprocess_page(array &$variables): void
+{
+  $variables['archive_footer'] = tla_bootstrap_sass_archive_footer();
+}
+
+/**
+ * Builds the content of the archive footer.
+ *
+ * The footer (templates/layout/archive-footer.html.twig) is the same bar on
+ * every archive site; what differs is the line above the address, the links
+ * and whether the UNESCO Memory of the World logo is there. The defaults are
+ * The Language Archive's. A theme built on this one passes what differs, from
+ * its own hook_preprocess_page():
+ *
+ * @code
+ * $variables['archive_footer'] = tla_bootstrap_sass_archive_footer([
+ *   'name' => NULL,
+ *   'memory_of_the_world' => FALSE,
+ * ]);
+ * @endcode
+ *
+ * The links are paths below the site's own base path, so a site that lives at
+ * /mpi links to /mpi/privacy-policy. The pages themselves are content: create
+ * them with these aliases, or the links lead to a "page not found".
+ *
+ * @param array<string, mixed> $overrides
+ *   Keys to replace: name, address (a list of lines), links (a list of title
+ *   and path), memory_of_the_world (a boolean).
+ *
+ * @return array<string, mixed>
+ *   The values for the footer template, with the link URLs and the folder of
+ *   the logos added.
+ */
+function tla_bootstrap_sass_archive_footer(array $overrides = []): array
+{
+  $footer = $overrides + [
+    'name' => t('The Language Archive'),
+    'address' => [
+      'Max Planck Institute for Psycholinguistics',
+      'Wundtlaan 1',
+      '6525XD Nijmegen',
+      'The Netherlands',
+    ],
+    'links' => [
+      ['title' => t('Mission'), 'path' => '/mission'],
+      ['title' => t('People'), 'path' => '/people'],
+      ['title' => t('Privacy Policy'), 'path' => '/privacy-policy'],
+      ['title' => t('Terms of Use'), 'path' => '/terms-of-use'],
+    ],
+    'memory_of_the_world' => TRUE,
+  ];
+  foreach ($footer['links'] as &$link) {
+    $link['url'] = (string) Url::fromUserInput($link['path'])->toString();
+  }
+  unset($link);
+  $footer['images'] = base_path()
+    . \Drupal::service('extension.list.theme')->getPath('tla_bootstrap_sass')
+    . '/images/footer';
+  return $footer;
+}
