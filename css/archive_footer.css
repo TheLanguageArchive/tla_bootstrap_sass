@@ -15,10 +15,9 @@
 }
 
 .archive-footer {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: start;
   gap: 2rem 3rem;
   max-inline-size: 1084px; /* the width of the page above */
   margin-inline: auto;
@@ -26,10 +25,6 @@
   color: #fff;
   font-size: 0.875rem;
   line-height: 1.5;
-}
-
-.archive-footer__contact {
-  flex: 1 1 14rem;
 }
 
 .archive-footer__address {
@@ -63,7 +58,7 @@
 }
 
 .archive-footer__unesco {
-  flex: 0 0 auto;
+  justify-self: center;
 }
 
 .archive-footer__unesco img {
@@ -73,6 +68,8 @@
 }
 
 .archive-footer__seals {
+  grid-column: 3;
+  justify-self: end;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -99,14 +96,15 @@
   inline-size: 9rem;
 }
 
-/* Narrow screens: one column, everything starts at the left edge. */
+/* Stack the sections on narrow screens and keep the UNESCO logo centred. */
 @media (max-width: 40rem) {
   .archive-footer {
-    flex-direction: column;
-    align-items: flex-start;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .archive-footer__seals {
+    grid-column: auto;
+    justify-self: start;
     align-items: flex-start;
   }
 }
