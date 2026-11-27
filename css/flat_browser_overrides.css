@@ -226,7 +226,22 @@ header#header .container {
   max-width: 100% !important;
   width: 100% !important;
   overflow: visible !important;
+}
+
+.region-header,
+header#header .container {
   display: flex !important;
+}
+
+/* #CollapsingNavbar is the hamburger menu's panel, and it holds the user menu.
+   From the md breakpoint up the navbar is expanded and the panel is always a
+   row; below it, Bootstrap's collapse keeps the panel closed until the hamburger
+   opens it. (This rule used to make it a flex row at every width, which left the
+   user menu showing next to a hamburger that opened nothing.) */
+@media (min-width: 48rem) {
+  #CollapsingNavbar {
+    display: flex !important;
+  }
 }
 
 #block-tla-bootstrap-sass-account-menu {
@@ -701,4 +716,56 @@ main > section.section {
   height: 55px !important;
   width: auto;
   max-width: none;
+}
+
+/* User menu inside the hamburger menu ---------------------------------------
+ * Below the md breakpoint the hamburger is shown and the user menu lives in the
+ * panel it opens (#CollapsingNavbar). On a wide screen the menu is a dropdown
+ * that opens on hover, which a phone cannot do, so in the panel it is laid open:
+ * the round icon, whose only job is to open the menu, is hidden, and the menu is
+ * a card across the panel. */
+@media (max-width: 47.9988rem) {
+  #CollapsingNavbar {
+    overflow: hidden !important; /* keeps the content inside while the panel slides */
+    padding: 0.25rem 1rem 0.75rem;
+  }
+
+  #CollapsingNavbar #block-tla-bootstrap-sass-account-menu,
+  #CollapsingNavbar #block-tla-bootstrap-sass-account-menu .menu-block,
+  #CollapsingNavbar #block-tla-bootstrap-sass-account-menu ul.menu {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    transform: none !important;
+  }
+
+  #CollapsingNavbar #block-tla-bootstrap-sass-account-menu .menu > li.button {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    margin: 0 !important;
+  }
+
+  #CollapsingNavbar #block-tla-bootstrap-sass-account-menu > .menu-block > .menu > li.button > a,
+  #CollapsingNavbar #block-tla-bootstrap-sass-account-menu .menu > li.button::after {
+    display: none !important;
+  }
+
+  #CollapsingNavbar #block-tla-bootstrap-sass-account-menu .dropdown-menu {
+    position: static !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    transition: none !important;
+  }
+
+  #CollapsingNavbar #block-tla-bootstrap-sass-account-menu .dropdown-menu > ul {
+    flex-direction: column !important;
+  }
 }

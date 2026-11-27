@@ -70,6 +70,19 @@ arrow nudge. The card state replaces the browser's focus ring. The lift, zoom,
 arrow nudge and the scroll-in fade only run when the visitor has not asked for
 reduced motion; the border and shadow change still shows then.
 
+## Header on small screens
+
+Below the md breakpoint (768px) the header shows a hamburger, and the user menu
+is inside the panel it opens (`#CollapsingNavbar`); from 768px up the panel is
+always a row with the user icon at its right. `css/flat_browser_overrides.css`
+used to force the panel to a flex row at every width, which left the user menu
+showing next to a hamburger that opened nothing; that rule now only applies from
+768px. In the open panel the user menu is laid open as a card, because its
+dropdown opens on hover and a phone has no hover; the round icon, which only
+opens that dropdown, is hidden there. The download, favourites and dashboard
+badges that the collection browser adds to the user menu for a signed-in visitor
+are in the panel too; they were not checked in this layout.
+
 ## Archive footer
 
 `templates/layout/archive-footer.html.twig` is the footer bar of the archive
